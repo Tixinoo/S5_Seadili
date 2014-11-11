@@ -1,5 +1,16 @@
 body{
     font-family: Lustria;
+    color:white;
+}
+
+div.page{
+    height:800px;
+    background-image: url(http://localhost/Seadili/Seadili/5_images/fondhead.jpg); 
+    padding: 10px 10px 10px 10px;
+}
+
+p.foot {
+    color: black;
 }
 
 div.titre{
@@ -14,37 +25,38 @@ div.titre{
 div.connexion{
     background-image: url(http://localhost/Seadili/Seadili/5_images/connexion.jpg); 
     height:60px; 
-    margin-top:0
+    margin-top:5px;
 }
 
 div.input{
     text-align:right; 
     position:relative; 
-    margin-top:70
+    padding-top:15px;
+    padding-right:10px;
 }
 
 div.menu{
     border-top:solid gray; 
-    background-color:Silver; 
-    height:30px
+    background-color:gray; 
+    height:50px
 }
 
 div.lienenreg{
     position:relative; 
     float:right; 
     background-color:black; 
-    height:28px; 
-    width:90px; 
+    height:50px; 
+    width:130px; 
     text-align:center; 
     color:white; 
     font-weight:bold
 }
 
 div.lienplaylist{
-    margin:auto; 
+    float:left;  
     background-color:black; 
-    height:28px; 
-    width:90px; 
+    height:50px; 
+    width:130px; 
     text-align:center; 
     color:white; 
     font-weight:bold
@@ -53,11 +65,11 @@ div.lienplaylist{
 div.lienhome{
     float:left; 
     background-color:black; 
-    height:28px; 
-    width:90px; 
+    height:50px; 
+    width:130px; 
     text-align:center; 
     color:white; 
-    font-weight:bold
+    font-weight:bold;
 }
 
 input.champ{
@@ -66,6 +78,15 @@ input.champ{
     border:1px solid white;
     border-radius:7px;
     width:150px;
+    box-shadow:1px 1px 2px Silver inset;
+}
+
+input.recherche{
+    background-color:silver;
+    padding:3px;
+    border:1px solid white;
+    border-radius:7px;
+    width:500px;
     box-shadow:1px 1px 2px Silver inset;
 }
 
