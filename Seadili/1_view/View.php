@@ -1,10 +1,10 @@
 <?php
 
 class View {
+    
     /*
      * Objet à afficher
      */
-
     private $obj;
 
     function __construct($p) {

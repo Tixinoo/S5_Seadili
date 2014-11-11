@@ -1,3 +1,96 @@
-body {
+body{
     font-family: Lustria;
+}
+
+div.titre{
+    border-top:solid gray; 
+    background-image: url(http://localhost/Seadili/Seadili/5_images/fondhead.jpg); 
+    height:150px; 
+    text-align:center; 
+    color:white; 
+    font-family: Lustria;
+}
+
+div.connexion{
+    background-image: url(http://localhost/Seadili/Seadili/5_images/connexion.jpg); 
+    height:60px; 
+    margin-top:0
+}
+
+div.input{
+    text-align:right; 
+    position:relative; 
+    margin-top:70
+}
+
+div.menu{
+    border-top:solid gray; 
+    background-color:Silver; 
+    height:30px
+}
+
+div.lienenreg{
+    position:relative; 
+    float:right; 
+    background-color:black; 
+    height:28px; 
+    width:90px; 
+    text-align:center; 
+    color:white; 
+    font-weight:bold
+}
+
+div.lienplaylist{
+    margin:auto; 
+    background-color:black; 
+    height:28px; 
+    width:90px; 
+    text-align:center; 
+    color:white; 
+    font-weight:bold
+}
+
+div.lienhome{
+    float:left; 
+    background-color:black; 
+    height:28px; 
+    width:90px; 
+    text-align:center; 
+    color:white; 
+    font-weight:bold
+}
+
+input.champ{
+    background-color:silver;
+    padding:3px;
+    border:1px solid white;
+    border-radius:7px;
+    width:150px;
+    box-shadow:1px 1px 2px Silver inset;
+}
+
+input.bouton{
+    background-color:Lavender;
+    width:100px;
+    padding:3px;
+    border-radius:7px;
+    margin-left:5px;
+    box-shadow:1px 1px 1px Silver;
+    cursor:pointer;
+}
+
+input.bouton:active{
+    background-color:Lavender;
+    box-shadow:1px 1px 1px Silver inset;
+}
+
+button{
+    background-color:white;
+    border: 0.1px solid #abadb3;
+    cursor:pointer;
+}
+
+img.loupe{
+    width:25px; 
+    height:25px;
 }
