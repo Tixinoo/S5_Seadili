@@ -14,6 +14,22 @@ div.page h1{
     text-align: center;
 }
 
+div.inscription{
+    margin: auto;
+    width: 455px;
+}
+
+label.lab{
+    display:inline-block;
+    width:210px;
+    text-align: right;
+    margin-right: 5px;
+}
+
+label.lab + input.champ{
+    margin-bottom: 10px;
+}
+
 p.foot {
     color: black;
 }
