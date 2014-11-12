@@ -9,6 +9,11 @@ div.page{
     padding: 10px 10px 10px 10px;
 }
 
+div.page h1{
+    color:orange;
+    text-align: center;
+}
+
 p.foot {
     color: black;
 }
