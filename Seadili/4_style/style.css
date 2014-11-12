@@ -4,6 +4,10 @@ body{
     background-color: rgb(25,25,25);
 }
 
+a{
+    color:rgb(25,25,25);
+}
+
 div.confirm {
     text-align: center;
 }
@@ -53,6 +57,11 @@ div.titre{
     text-align:center; 
     color:white; 
     font-family: Lustria;
+}
+
+div.titre h1{
+    font-size: 50px;
+    margin-bottom: -20px;
 }
 
 div.connexion{
