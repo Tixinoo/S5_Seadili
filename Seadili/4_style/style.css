@@ -1,11 +1,23 @@
 body{
     font-family: Lustria;
-    color:white;
+    color:white; 
+    background-color: rgb(25,25,25);
+}
+
+div.confirm {
+    text-align: center;
+}
+
+div.confirm input{
+    font-size: 14px;
+}
+
+input {
+    font-family: Lustria;
 }
 
 div.page{
     height:800px;
-    background-image: url(http://localhost/Seadili/Seadili/5_images/fondhead.jpg); 
     padding: 10px 10px 10px 10px;
 }
 
@@ -31,12 +43,12 @@ label.lab + input.champ{
 }
 
 p.foot {
-    color: black;
+    color: white;
 }
 
 div.titre{
     border-top:solid gray; 
-    background-image: url(http://localhost/Seadili/Seadili/5_images/fondhead.jpg); 
+    background-color: rgb(25,25,25); 
     height:150px; 
     text-align:center; 
     color:white; 
@@ -57,39 +69,39 @@ div.input{
 }
 
 div.menu{
-    border-top:solid gray; 
-    background-color:gray; 
-    height:50px
+    background-color: rgb(25,25,25); 
+    height:50px;
+    text-align: center;
+    color: black;
 }
 
 div.lienenreg{
-    position:relative; 
-    float:right; 
-    background-color:black; 
+    display: inline-block;
+    background-color:rgb(140,140,140); 
     height:50px; 
+    line-height:50px;
     width:130px; 
     text-align:center; 
-    color:white; 
     font-weight:bold
 }
 
 div.lienplaylist{
-    float:left;  
-    background-color:black; 
+    display: inline-block;
+    background-color: rgb(180,180,180); 
     height:50px; 
+    line-height:50px;
     width:130px; 
     text-align:center; 
-    color:white; 
-    font-weight:bold
+    font-weight:bold;
 }
 
 div.lienhome{
-    float:left; 
-    background-color:black; 
-    height:50px; 
+    display: inline-block;
+    background-color: rgb(220,220,220);; 
+    height:50px;
+    line-height:50px; 
     width:130px; 
     text-align:center; 
-    color:white; 
     font-weight:bold;
 }
 
