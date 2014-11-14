@@ -10,9 +10,7 @@ class Artist {
      */
     private $artist_id, $name, $image_url, $info;
 
-    public function __construct() {
-        
-    }
+    public function __construct() {}
 
     /**
      * retourne un attribut suivant son nom
