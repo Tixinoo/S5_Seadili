@@ -25,14 +25,14 @@ class SiteController extends Controller {
     
     public function playlistsAction() {
         $o = NULL;
-        $view = new View($o);
+        $view = new View($o,$o);
         $view->playlistsView();
         
     }
     
     public function registerAction() {
         $o = NULL;
-        $view = new View($o);
+        $view = new View($o,$o);
         $view->registerView();
     }
 }
