@@ -13,7 +13,7 @@ class DataBase {
      * décrite dans le fichier de configuration
      * 'seadili-db.ini'
      */
-    public static function __getConnection() {
+    public static function getConnection() {
         try {
             
             // Création d'un tableau contenant les informations
@@ -29,7 +29,7 @@ class DataBase {
             // Configuration de l'encodage
             $seadilidb->exec("SET CHARACTER SET utf8");
             
-            return $bdd;
+            return $seadilidb;
             
         } catch (Exception $e) {
             throw new BaseException("Connection: $dsn ".$e->getMessage(). '<br/>');

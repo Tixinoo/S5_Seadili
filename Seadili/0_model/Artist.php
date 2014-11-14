@@ -55,7 +55,7 @@ class Artist {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "UPDATE Artist SET name = :name , image_url = :imageurl, info = :info WHERE artist_id = :id";
+            $query = "UPDATE Artists SET name = :name , image_url = :imageurl, info = :info WHERE artist_id = :id";
             $statement = $db->prepare($query);
             $statement->bindParam(':name', $this->name);
             $statement->bindParam(':imageurl', $this->image_url);
@@ -88,7 +88,7 @@ class Artist {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "DELETE Artist WHERE artist_id = :id";
+            $query = "DELETE Artists WHERE artist_id = :id";
             $statement = $db->prepare($query);
             $statement->bindParam(':id', $this->artist_id);
 
@@ -114,7 +114,7 @@ class Artist {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "INSERT INTO Artist (name,image_url,info) VALUES(:name,:imageurl,:info)";
+            $query = "INSERT INTO Artists (name,image_url,info) VALUES(:name,:imageurl,:info)";
             $statement = $db->prepare($query);
             $statement->bindParam(':name', $this->name);
             $statement->bindParam(':imageurl', $this->image_url);
@@ -143,7 +143,7 @@ class Artist {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "SELECT * FROM Artist WHERE artist_id = :id";
+            $query = "SELECT * FROM Artists WHERE artist_id = :id";
             $statement = $db->prepare($query);
             $statement->bindParam(':id', $this->artist_id);
 
@@ -179,7 +179,7 @@ class Artist {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "SELECT * FROM Artist";
+            $query = "SELECT * FROM Artists";
             $statement = $db->prepare($query);
 
             // Exécution de la requête préparée

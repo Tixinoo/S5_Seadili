@@ -2,6 +2,7 @@
 
 include_once 'Controller.php';
 include_once '1_view/View.php';
+include_once '0_model/Artist.php';
 
 class SiteController extends Controller {
 
@@ -21,9 +22,13 @@ class SiteController extends Controller {
     }
     
     public function playlistsAction() {
-        $o = NULL;
-        $view = new View($o);
-        $view->playlistsView();  
+        //$o = NULL;
+        //$view = new View($o);
+        //$view->playlistsView();
+        $tab = Artist::findAll();
+        $view = new View($tab);
+        $view->playlistsView();
+        
     }
     
     public function registerAction() {
