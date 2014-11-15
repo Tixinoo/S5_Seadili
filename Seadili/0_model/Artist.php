@@ -143,7 +143,7 @@ class Artist {
             // Création de la requête préparée
             $query = "SELECT * FROM Artists WHERE artist_id = :id";
             $statement = $db->prepare($query);
-            $statement->bindParam(':id', $this->artist_id);
+            $statement->bindParam(':id', $id);
 
             // Exécution de la requête préparée
             $statement->execute();

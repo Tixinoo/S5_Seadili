@@ -47,6 +47,16 @@ div.morceau {
     overflow: hidden;
 }
 
+div.playlist {
+    display: inline-block;
+    border: solid white 2px;
+    text-align: center;
+    padding: 3px;
+    margin : 3px;
+    width: 365px;
+    overflow: hidden;
+}
+
 div.page{
     padding: 10px 10px 10px 10px;
 }

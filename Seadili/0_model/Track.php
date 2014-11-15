@@ -10,7 +10,9 @@ class Track {
      */
     private $track_id, $title, $mp3_url, $artist_id;
 
-    public function __construct() {}
+    public function __construct() {
+        
+    }
 
     /**
      * retourne un attribut suivant son nom
@@ -143,7 +145,7 @@ class Track {
             // Création de la requête préparée
             $query = "SELECT * FROM Tracks WHERE track_id = :id";
             $statement = $db->prepare($query);
-            $statement->bindParam(':id', $this->track_id);
+            $statement->bindParam(':id', $id);
 
             // Exécution de la requête préparée
             $statement->execute();
@@ -163,6 +165,40 @@ class Track {
         } catch (Exception $e) {
             $trace = $e->getTrace();
             echo "Erreur pendant findById: $trace";
+        }
+    }
+
+    public static function findByPlaylist($playlistid) {
+        try {
+            // Récupération d'une connexion à la base
+            $db = DataBase::getConnection();
+
+            // Création de la requête préparée
+            //$query = "SELECT track_id FROM playlists_tracks WHERE playlist_id = :pid";
+            $query = "SELECT * FROM playlists_tracks";
+            $statement = $db->prepare($query);
+            //$statement->bindParam(':pid', $playlistid);
+
+            // Exécution de la requête préparée
+            $statement->execute();
+
+            // Récupération de tous les tuples de la table Artist
+            $row = $statement->fetch(PDO::FETCH_ASSOC);
+
+            $tab = Array();
+            // Tant que des lignes sont retournées
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                // Remplissage d'un objet Artist avec les artist_idrmations contenues dans le tuple courant
+                $track = new Track();
+                $track = Track::findById($row['track_id']);
+                $tab[] = $track;
+            }
+
+            // Retour du tableau d'artiste
+            return $tab;
+        } catch (Exception $e) {
+            $trace = $e->getTrace();
+            echo "Erreur pendant findByPlaylist: $trace";
         }
     }
 
