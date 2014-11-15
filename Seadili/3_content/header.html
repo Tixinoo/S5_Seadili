@@ -7,12 +7,24 @@
         <link rel="stylesheet" href="4_style/style.css" />
         <link href='http://fonts.googleapis.com/css?family=Yeseva+One' rel='stylesheet' type='text/css'/>
         <link href='http://fonts.googleapis.com/css?family=Lustria' rel='stylesheet' type='text/css'/>
-
+        
         <script language="JavaScript">
 
             function addtrackplaylist(track)
             {
                 document.getElementById("playlistcurrent").innerHTML= document.getElementById("playlistcurrent").innerHTML + track;
+            }
+            
+            function playlist(id)
+            {
+                identifiant = "pcontent"+id;
+                if(document.getElementById(identifiant).style.display == "none"){
+                    document.getElementById(identifiant).style.display = "block";
+                }
+                else{
+                    document.getElementById(identifiant).style.display = "none";
+                }
+    
             }
 
         </script>
