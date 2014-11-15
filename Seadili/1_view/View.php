@@ -77,7 +77,7 @@ class View {
         echo"<div class=\"morceau\">" . $track->title;
         echo
         "<form name=\"addtrack\" method=\"POST\">
-	<input type=\"button\" value=\"Ajouter\"  onclick=\"addtrackplaylist(". $track->track_id . ")\">
+	<input type=\"button\" value=\"Ajouter\"  onclick=\"addtrackplaylist(". $track->track_id . ",'". $track->title . "')\">
         </form>";
         $artist = Artist::findById($track->artist_id);
         echo "<i>" . $artist->name . "</i>

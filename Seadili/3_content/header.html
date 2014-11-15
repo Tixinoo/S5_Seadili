@@ -10,9 +10,10 @@
 
         <script language="JavaScript">
 
-            function addtrackplaylist(track)
+            function addtrackplaylist(trackid, tracktitle)
             {
-                document.getElementById("playlistcurrent").innerHTML= document.getElementById("playlistcurrent").innerHTML + track;
+                document.getElementById("playlistcurrent").innerHTML = document.getElementById("playlistcurrent").innerHTML + "<li>(" + trackid + ") " + tracktitle + "</li>";
+                document.getElementById("playlistadd").innerHTML = document.getElementById("playlistadd").innerHTML + "<input type=\"hidden\" name=\"tracks[]\" value=\"" + trackid + "\">";
             }
 
         </script>
@@ -31,10 +32,19 @@
         <title> 
             SeaDiLi 
         </title>
+
         <div class="titre"> 
             <h1>SeaDiLi</h1>
             <h4><i>Search.Discover.Listen</i></h4>
         </div>
+
+        <div id="playlistcurrent">
+        </div>
+        <form action="3_content/playlistadd.php" method="POST">
+            <div id="playlistadd">
+            </div>
+            <input type="submit" name="Ajouter"/>
+        </form>
 
         <div class="menu">
             <a href="index.php?a=home"><div class="lienhome">Accueil</div></a>

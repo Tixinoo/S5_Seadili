@@ -61,6 +61,15 @@ div.playlist {
     overflow: hidden;
 }
 
+#playlistcurrent {
+    position: absolute;
+    top: 100px;
+    right: 50px;
+    border: solid white 2px;
+    padding: 8px;
+    text-align: left;
+}
+
 div.page{
     padding: 10px 10px 10px 10px;
 }
