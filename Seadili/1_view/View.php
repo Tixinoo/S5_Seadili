@@ -47,6 +47,29 @@ class View {
     public function playlistsView() {
         include '3_content/header.html';
         include '3_content/playlists.html';
+        
+        echo
+        "<div class=\"decouverte\">
+            <h2>Decouvrir...</h2>
+            <div class=\"Dplaylist\" id=1 onclick=\"playlist(this.id)\">
+                Playlist 1<input type=\"button\" class=\"add\" value=\"+\">
+            </div>
+            <div class=\"playlistcontent\" id=\"pcontent1\"> 
+                Morceau 1
+                <br>Morceau 2
+            </div>
+            
+            <div class=\"Dplaylist\" id=2 onclick=\"playlist(this.id)\">
+                Playlist 2<input type=\"button\" class=\"add\" value=\"+\">
+            </div>
+            <div class=\"playlistcontent\" id=\"pcontent2\"> 
+                Morceau 1
+                <br>Morceau 2
+            </div>
+        </div>";
+        
+        
+        
         include '3_content/footer.html';
     }
 
@@ -92,7 +115,7 @@ class View {
     public function playlistView($playlist) {
         echo"<div class=\"playlist\">" . $playlist->playlist_name . "
         <br><i>Created by ..</i>";
-        $tracks = Track::findByPlaylist($playlist->playslit_id);
+        $tracks = Track::findByPlaylist($playlist->playlist_id);
         foreach ($tracks as $track) {
             $this->trackView($track);
         }
