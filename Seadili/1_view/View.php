@@ -40,6 +40,7 @@ class View {
             $this->playlistView($playlist);
         }
         
+        include '3_content/playlist_current.html';
         include '3_content/footer.html';
     }
 
@@ -74,8 +75,12 @@ class View {
      */
     public function trackView($track) {
         echo"<div class=\"morceau\">" . $track->title;
+        echo
+        "<form name=\"addtrack\" method=\"POST\">
+	<input type=\"button\" value=\"Ajouter\"  onclick=\"addtrackplaylist(". $track->track_id . ")\">
+        </form>";
         $artist = Artist::findById($track->artist_id);
-        echo "<br><i>" . $artist->name . "</i>
+        echo "<i>" . $artist->name . "</i>
         <br><audio controls=\"controls\"><source src=". $track->mp3_url ."/></audio>
         </div>";
     }
