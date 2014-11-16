@@ -175,9 +175,9 @@ class Track {
 
             // Création de la requête préparée
             //$query = "SELECT track_id FROM playlists_tracks WHERE playlist_id = :pid";
-            $query = "SELECT * FROM playlists_tracks";
+            $query = "SELECT * FROM playlists_tracks WHERE playlist_id = :pid";
             $statement = $db->prepare($query);
-            //$statement->bindParam(':pid', $playlistid);
+            $statement->bindParam(':pid', $playlistid);
 
             // Exécution de la requête préparée
             $statement->execute();

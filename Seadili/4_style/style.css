@@ -63,11 +63,32 @@ div.playlist {
 
 #playlistcurrent {
     position: absolute;
-    top: 100px;
+    top: 168px;
     right: 50px;
     border: solid white 2px;
     padding: 8px;
+    width: 400px;
     text-align: left;
+}
+
+input.newPlaylist {
+    position: absolute;
+    top: 90px;
+    right: 50px;
+    border: solid white 2px;
+    padding: 8px;
+    width: 420px;
+    text-align: center; 
+}
+
+input.nomNewPlaylist {
+    position: absolute;
+    top: 130px;
+    right: 50px;
+    border: solid white 2px;
+    padding: 8px;
+    width: 400px;
+    text-align: left; 
 }
 
 div.decouverte {
@@ -76,7 +97,7 @@ div.decouverte {
     margin: 3px;
     border-radius: 10px;
     width: 400px;
-    
+
 }
 
 div.Dplaylist {

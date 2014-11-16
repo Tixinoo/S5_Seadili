@@ -15,7 +15,7 @@ foreach ($_POST['tracks'] as $id) {
 }
 
 $newPlaylist = new Playlist();
-$newPlaylist->playlist_name = "Nouvelle2";
+$newPlaylist->playlist_name = $_POST['nomNouvellePlaylist'];
 $newPlaylist->user_id = 1;
 $newPlaylist->insert();
 
@@ -27,7 +27,6 @@ foreach ($_POST['tracks'] as $id) {
     $newPlaylist_tracks->track_id = $id;
     $newPlaylist_tracks->insert();
     $i++;
-    echo "<br>on insère";
 }
 
-header("Location: index.php?a=home");
+header("Location: ../index.php?a=home");
