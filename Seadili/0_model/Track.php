@@ -55,7 +55,7 @@ class Track {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "UPDATE Tracks SET title = :title , mp3_url = :imageurl, artist_id = :artist_id WHERE track_id = :id";
+            $query = "UPDATE tracks SET title = :title , mp3_url = :imageurl, artist_id = :artist_id WHERE track_id = :id";
             $statement = $db->prepare($query);
             $statement->bindParam(':title', $this->title);
             $statement->bindParam(':imageurl', $this->mp3_url);
@@ -88,7 +88,7 @@ class Track {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "DELETE Tracks WHERE track_id = :id";
+            $query = "DELETE tracks WHERE track_id = :id";
             $statement = $db->prepare($query);
             $statement->bindParam(':id', $this->track_id);
 
@@ -114,7 +114,7 @@ class Track {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "INSERT INTO Tracks (title,mp3_url,artist_id) VALUES(:title,:imageurl,:artist_id)";
+            $query = "INSERT INTO tracks (title,mp3_url,artist_id) VALUES(:title,:imageurl,:artist_id)";
             $statement = $db->prepare($query);
             $statement->bindParam(':title', $this->title);
             $statement->bindParam(':imageurl', $this->mp3_url);
@@ -143,7 +143,7 @@ class Track {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "SELECT * FROM Tracks WHERE track_id = :id";
+            $query = "SELECT * FROM tracks WHERE track_id = :id";
             $statement = $db->prepare($query);
             $statement->bindParam(':id', $id);
 
@@ -213,7 +213,7 @@ class Track {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "SELECT * FROM Tracks";
+            $query = "SELECT * FROM tracks";
             $statement = $db->prepare($query);
 
             // Exécution de la requête préparée

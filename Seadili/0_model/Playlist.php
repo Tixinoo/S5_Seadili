@@ -53,7 +53,7 @@ class Playlist {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "UPDATE Playlists SET playlist_name = :playlist_name, user_id = :user_id WHERE playlist_id = :id";
+            $query = "UPDATE playlists SET playlist_name = :playlist_name, user_id = :user_id WHERE playlist_id = :id";
             $statement = $db->prepare($query);
             $statement->bindParam(':playlist_name', $this->playlist_name);
             $statement->bindParam(':user_id', $this->user_id);
@@ -85,7 +85,7 @@ class Playlist {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "DELETE Playlists WHERE playlist_id = :id";
+            $query = "DELETE playlists WHERE playlist_id = :id";
             $statement = $db->prepare($query);
             $statement->bindParam(':id', $this->playlist_id);
 
@@ -111,7 +111,7 @@ class Playlist {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "INSERT INTO Playlists (playlist_name,user_id) VALUES(:playlist_name,:user_id)";
+            $query = "INSERT INTO playlists (playlist_name,user_id) VALUES(:playlist_name,:user_id)";
             $statement = $db->prepare($query);
             $statement->bindParam(':playlist_name', $this->playlist_name);
             $statement->bindParam(':user_id', $this->user_id);
@@ -139,7 +139,7 @@ class Playlist {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "SELECT * FROM Playlists WHERE playlist_id = :id";
+            $query = "SELECT * FROM playlists WHERE playlist_id = :id";
             $statement = $db->prepare($query);
             $statement->bindParam(':id', $id);
 
