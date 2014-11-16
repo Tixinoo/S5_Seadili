@@ -8,18 +8,18 @@ class Playlist_tracks {
      * Attributs d'un titre
      * (correspondent aux colonnes de la table 'Playlist_tracks')
      */
-    private $playlist_id, $playlist_name, $user_id;
+    private $playlist_id, $position, $track_id;
 
     public function __construct() {}
 
     /**
      * retourne un attribut suivant son nom
      * s'il existe
-     * @param $attr_playlist_name nom de l'attribut
+     * @param $attr_position nom de l'attribut
      */
-    public function __get($attr_playlist_name) {
-        if (property_exists(__CLASS__, $attr_playlist_name)) {
-            return $this->$attr_playlist_name;
+    public function __get($attr_position) {
+        if (property_exists(__CLASS__, $attr_position)) {
+            return $this->$attr_position;
         }
     }
 
@@ -27,12 +27,12 @@ class Playlist_tracks {
      * modifie un attribut suivant son nom
      * et une nouvelle valeur
      * s'il exsite
-     * @param $attr_playlist_name nom de l'attribut
+     * @param $attr_position nom de l'attribut
      * @param $attr_val nouvelle valeur de l'attribut
      */
-    public function __set($attr_playlist_name, $attr_val) {
-        if (property_exists(__CLASS__, $attr_playlist_name)) {
-            $this->$attr_playlist_name = $attr_val;
+    public function __set($attr_position, $attr_val) {
+        if (property_exists(__CLASS__, $attr_position)) {
+            $this->$attr_position = $attr_val;
         }
     }
 
@@ -53,10 +53,10 @@ class Playlist_tracks {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "UPDATE playlists SET playlist_name = :playlist_name, user_id = :user_id WHERE playlist_id = :id";
+            $query = "UPDATE playlists_tracks SET position = :position, track_id = :track_id WHERE playlist_id = :id";
             $statement = $db->prepare($query);
-            $statement->bindParam(':playlist_name', $this->playlist_name);
-            $statement->bindParam(':user_id', $this->user_id);
+            $statement->bindParam(':position', $this->position);
+            $statement->bindParam(':track_id', $this->track_id);
             $statement->bindParam(':id', $this->playlist_id);
 
             // Exécution de la requête préparée
@@ -85,7 +85,7 @@ class Playlist_tracks {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "DELETE playlists WHERE playlist_id = :id";
+            $query = "DELETE playlists_tracks WHERE playlist_id = :id";
             $statement = $db->prepare($query);
             $statement->bindParam(':id', $this->playlist_id);
 
@@ -111,13 +111,15 @@ class Playlist_tracks {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "INSERT INTO playlists (playlist_name,user_id) VALUES(:playlist_name,:user_id)";
+            $query = "INSERT INTO playlists_tracks (playlist_id,position,track_id) VALUES(:playlist_id,:position,:track_id)";
             $statement = $db->prepare($query);
-            $statement->bindParam(':playlist_name', $this->playlist_name);
-            $statement->bindParam(':user_id', $this->user_id);
+            $statement->bindParam(':playlist_id', $this->playlist_id);
+            $statement->bindParam(':position', $this->position);
+            $statement->bindParam(':track_id', $this->track_id);
 
             // Exécution de la requête préparée
             $res = $statement->execute();
+            
             return $res;
         } catch (Exception $e) {
             $trace = $e->getTrace();
@@ -139,7 +141,7 @@ class Playlist_tracks {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "SELECT * FROM playlists WHERE playlist_id = :id";
+            $query = "SELECT * FROM playlists_tracks WHERE playlist_id = :id";
             $statement = $db->prepare($query);
             $statement->bindParam(':id', $id);
 
@@ -152,8 +154,8 @@ class Playlist_tracks {
             // Remplissage d'un objet Playlist_tracks avec les informations contenues dans le tuple
             $playlist = new Playlist_tracks();
             $playlist->playlist_id = $row['playlist_id'];
-            $playlist->playlist_name = $row['playlist_name'];
-            $playlist->user_id = $row['user_id'];
+            $playlist->position = $row['position'];
+            $playlist->track_id = $row['track_id'];
             
             // Retour de l'artiste
             return $playlist;
@@ -174,7 +176,7 @@ class Playlist_tracks {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "SELECT * FROM playlists";
+            $query = "SELECT * FROM playlists_tracks";
             $statement = $db->prepare($query);
 
             // Exécution de la requête préparée
@@ -189,8 +191,8 @@ class Playlist_tracks {
                 // Remplissage d'un objet Playlist_tracks avec les informations contenues dans le tuple courant
                 $playlist = new Playlist_tracks();
                 $playlist->playlist_id = $row['playlist_id'];
-                $playlist->playlist_name = $row['playlist_name'];
-                $playlist->user_id = $row['user_id'];
+                $playlist->position = $row['position'];
+                $playlist->track_id = $row['track_id'];
                 $tab[] = $playlist;
             }
 
