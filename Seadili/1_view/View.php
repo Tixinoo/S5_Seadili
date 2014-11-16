@@ -18,7 +18,7 @@ class View {
         include '3_content/home.html';
         //Affichage de 10 titres aléatoires
         echo "<h2>Titres</h2><hr><br>";
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 3; $i++) {
             $this->trackView($this->obj0[rand(0, count($this->obj0)-1)]);
         }
         //foreach ($this->obj0 as $track) {
@@ -27,7 +27,7 @@ class View {
         
         //Affichage de 10 artistes aléatoires
         echo "<h2>Artites</h2><hr><br>";
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 3; $i++) {
             $this->artistView($this->obj1[rand(0, count($this->obj1)-1)]);
         }
         //foreach ($this->obj1 as $artist) {
@@ -40,7 +40,6 @@ class View {
             $this->playlistView($playlist);
         }
         
-        include '3_content/playlist_current.html';
         include '3_content/footer.html';
     }
 
