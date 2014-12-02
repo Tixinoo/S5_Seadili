@@ -108,6 +108,23 @@ class View {
     }
     
     /**
+     * Affiche un titre
+     * @param $track Titre à afficher
+     */
+    public function trackView2($track) {
+        $str = "<div class=\"morceau\">" . $track->title;
+        $str.=
+        "<form name=\"addtrack\" method=\"POST\">
+	<input type=\"button\" value=\"Ajouter\"  onclick=\"addtrackplaylist(". $track->track_id . ",'". $track->title . "')\">
+        </form>";
+        $artist = Artist::findById($track->artist_id);
+        $str.= "<i>" . $artist->name . "</i>
+        <br><audio controls=\"controls\"><source src=". $track->mp3_url ."/></audio>
+        </div>";
+        return $str;
+    }
+    
+    /**
      * Affiche une playlist
      * @param $playlist Playlist à afficher
      */

@@ -186,7 +186,7 @@ class Playlist {
             $statement->execute();
 
             // Récupération de tous les tuples de la table Artist
-            $row = $statement->fetch(PDO::FETCH_ASSOC);
+            //$row = $statement->fetch(PDO::FETCH_OBJ);
 
             $tab = Array();
             // Tant que des lignes sont retournées

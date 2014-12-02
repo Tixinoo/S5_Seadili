@@ -13,10 +13,11 @@ class SiteController extends Controller {
             'default' => 'defaultAction',
             'home' => 'defaultAction',
             'playlists' => 'playlistsAction',
-            'register' => 'registerAction'
+            'register' => 'registerAction',
+            'search' => 'searchAction'
         );
     }
-   
+    
     public function defaultAction() {
         $tab0 = Track::findAll();
         $tab1 = Artist::findAll();
@@ -36,5 +37,18 @@ class SiteController extends Controller {
         $o = NULL;
         $view = new View($o,$o,$o);
         $view->registerView();
+    }
+    
+    public function searchAction() {
+        if (isset($_GET['val'])) {
+            $this->searchByTitle($_GET['val']);
+        }
+    }
+    
+    public function searchByTitle($v) {
+        $t = Track::findById($v);
+        $o = NULL;
+        $view = new View($o,$o,$o);
+        echo $view->trackView2($t);
     }
 }
