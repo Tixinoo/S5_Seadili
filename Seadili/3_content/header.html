@@ -56,9 +56,11 @@
 
         <div class="connexion">
             <div class="input">
-                <input class="champ" type="text" name="identifiant" value="identifiant" size="20"/>
-                <input class="champ" type="password" name="mdp" value="mot de passe"/>
-                <input class="bouton" type="button" value="Se connecter"/>
+                <form action="3_content/connection.php" method="post">
+                    <input class="champ" type="text" name="username" value="bateau" size="20"/>
+                    <input class="champ" type="password" name="password" value="mdp"/>
+                    <input class="bouton" type="submit" value="Se connecter"/>
+                </form>
             </div>
         </div>
         <title> 

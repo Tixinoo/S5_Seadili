@@ -167,6 +167,41 @@ class Playlist {
             echo "Erreur pendant findById: $trace";
         }
     }
+    
+    public static function findByUserid($userid) {
+        try {
+            // Récupération d'une connexion à la base
+            $db = DataBase::getConnection();
+
+            // Création de la requête préparée
+            $query = "SELECT * FROM playlists WHERE user_id = :id";
+            $statement = $db->prepare($query);
+            $statement->bindParam(':id', $userid);
+
+            // Exécution de la requête préparée
+            $statement->execute();
+
+            // Récupération de tous les tuples de la table Artist
+            //$row = $statement->fetch(PDO::FETCH_OBJ);
+
+            $tab = Array();
+            // Tant que des lignes sont retournées
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                // Remplissage d'un objet Playlist avec les informations contenues dans le tuple courant
+                $playlist = new Playlist();
+                $playlist->playlist_id = $row['playlist_id'];
+                $playlist->playlist_name = $row['playlist_name'];
+                $playlist->user_id = $row['user_id'];
+                $tab[] = $playlist;
+            }
+
+            // Retour du tableau d'artiste
+            return $tab;
+        } catch (Exception $e) {
+            $trace = $e->getTrace();
+            echo "Erreur pendant findById: $trace";
+        }
+    }
 
     /**
      * retourne dans un tableau d'objets Artist
