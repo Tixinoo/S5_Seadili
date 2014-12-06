@@ -166,6 +166,44 @@ class Artist {
         }
     }
 
+    public static function findByName($name) {
+        try {
+            // Récupération d'une connexion à la base
+            $db = DataBase::getConnection();
+
+            // Création de la requête préparée
+            $query = "SELECT * FROM artists WHERE name LIKE :name";
+            $statement = $db->prepare($query);
+            $str = "%" . $name . "%";
+
+            $statement->bindParam(':name', $str);
+
+            // Exécution de la requête préparée
+            $statement->execute();
+
+            // Récupération de tous les tuples de la table Artist
+            //$row = $statement->fetch(PDO::FETCH_ASSOC);
+
+            $tab = Array();
+            // Tant que des lignes sont retournées
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                // Remplissage d'un objet Artist avec les informations contenues dans le tuple courant
+                $artist = new Artist();
+                $artist->artist_id = $row['artist_id'];
+                $artist->name = $row['name'];
+                $artist->image_url = $row['image_url'];
+                $artist->info = $row['info'];
+                $tab[] = $artist;
+            }
+
+            // Retour du tableau de tracks
+            return $tab;
+        } catch (Exception $e) {
+            $trace = $e->getTrace();
+            echo "Erreur pendant findByName: $trace";
+        }
+    }
+    
     /**
      * retourne dans un tableau d'objets Artist
      * tous les artistes contenus dans la base

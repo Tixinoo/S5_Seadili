@@ -14,7 +14,8 @@ class SiteController extends Controller {
             'home' => 'defaultAction',
             'playlists' => 'playlistsAction',
             'register' => 'registerAction',
-            'search' => 'searchAction'
+            'searchTracks' => 'searchTracksAction',
+            'searchArtists' => 'searchArtistsAction'
         );
     }
     
@@ -39,16 +40,30 @@ class SiteController extends Controller {
         $view->registerView();
     }
     
-    public function searchAction() {
+    public function searchTracksAction() {
         if (isset($_GET['val'])) {
-            $this->searchByTitle($_GET['val']);
+            $this->searchByTrackTitle($_GET['val']);
         }
     }
     
-    public function searchByTitle($v) {
-        $t = Track::findById($v);
+    public function searchArtistsAction() {
+        if (isset($_GET['val'])) {
+            $this->searchByArtistName($_GET['val']);
+        }
+    }
+    
+    public function searchByTrackTitle($v) {
+        $t = Track::findByTitle($v);
         $o = NULL;
         $view = new View($o,$o,$o);
-        echo $view->trackView2($t);
+        echo $view->tracksView($t);
     }
+    
+    public function searchByArtistName($v) {
+        $t = Artist::findByName($v);
+        $o = NULL;
+        $view = new View($o,$o,$o);
+        echo $view->artistsView($t);
+    }
+    
 }

@@ -203,6 +203,48 @@ class Track {
     }
 
     /**
+     * retourne dans un tableau d'objets Track
+     * @return un tableau d'objets Track rempli avec les track matchant avec le paramètre
+     */
+    public static function findByTitle($title) {
+        try {
+            // Récupération d'une connexion à la base
+            $db = DataBase::getConnection();
+
+            // Création de la requête préparée
+            $query = "SELECT * FROM tracks WHERE title LIKE :title";
+            $statement = $db->prepare($query);
+            $str = "%" . $title . "%";
+
+            $statement->bindParam(':title', $str);
+
+            // Exécution de la requête préparée
+            $statement->execute();
+
+            // Récupération de tous les tuples de la table Artist
+            //$row = $statement->fetch(PDO::FETCH_ASSOC);
+
+            $tab = Array();
+            // Tant que des lignes sont retournées
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                // Remplissage d'un objet Track avec les informations contenues dans le tuple courant
+                $track = new Track();
+                $track->track_id = $row['track_id'];
+                $track->title = $row['title'];
+                $track->mp3_url = $row['mp3_url'];
+                $track->artist_id = $row['artist_id'];
+                $tab[] = $track;
+            }
+
+            // Retour du tableau de tracks
+            return $tab;
+        } catch (Exception $e) {
+            $trace = $e->getTrace();
+            echo "Erreur pendant findByTitle: $trace";
+        }
+    }
+    
+    /**
      * retourne dans un tableau d'objets Artist
      * tous les artistes contenus dans la base
      * @return un tableau d'objets Artist rempli avec les artistes contenues dans la base

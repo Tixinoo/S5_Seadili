@@ -17,28 +17,31 @@ class View {
         include '3_content/header.html';
         include '3_content/home.html';
         //Affichage de 10 titres aléatoires
-        echo "<h2>Titres</h2><hr><br>";
+        echo "<h2>Titres</h2><hr><br><div id=\"resultatsTitres\">";
         for ($i = 0; $i < 3; $i++) {
             $this->trackView($this->obj0[rand(0, count($this->obj0)-1)]);
         }
         //foreach ($this->obj0 as $track) {
             //$this->trackView($track);
         //}
+        echo "</div>";
         
         //Affichage de 10 artistes aléatoires
-        echo "<h2>Artites</h2><hr><br>";
+        echo "<h2>Artites</h2><hr><br><div id=\"resultatsArtistes\">";
         for ($i = 0; $i < 3; $i++) {
             $this->artistView($this->obj1[rand(0, count($this->obj1)-1)]);
         }
         //foreach ($this->obj1 as $artist) {
             //$this->artistView($artist);
         //}
+        echo "</div>";
         
         //Affichage de toutes les playlists
-        echo "<h2>Playlists</h2><hr><br>";
+        echo "<h2>Playlists</h2><hr><br><div id=\"resultatsPlaylists\">";
         foreach ($this->obj2 as $playlist) {
             $this->playlistView($playlist);
         }
+        echo "</div>";
         
         include '3_content/footer.html';
     }
@@ -92,6 +95,26 @@ class View {
     }
     
     /**
+     * Affiche un artiste
+     * @param $artist Artiste à afficher
+     */
+    public function artistView2($artist) {
+        $str = "<div class=\"artiste\">" . $artist->name . "
+        <br><img src=\"" . $artist->image_url . "\" height=\"100px\"/>
+        <br>Info : " . $artist->info . "
+        </div>";
+        return $str;
+    }
+    
+    public function artistsView($artists) {
+        $str = "";
+        foreach ($artists as $artist) {
+            $str.= $this->artistView2($artist);
+        }
+        return $str;
+    }  
+    
+    /**
      * Affiche un titre
      * @param $track Titre à afficher
      */
@@ -123,6 +146,15 @@ class View {
         </div>";
         return $str;
     }
+    
+    
+    public function tracksView($tracks) {
+        $str = "";
+        foreach ($tracks as $track) {
+            $str.= $this->trackView2($track);
+        }
+        return $str;
+    }    
     
     /**
      * Affiche une playlist

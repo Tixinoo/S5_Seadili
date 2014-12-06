@@ -28,15 +28,22 @@
             }
 
             function search() {
-                $("#resultats").html("toto");
                 var input = $("#rechercher").val();
-                console.log(input);
+                $("#resultats").html("<p>Résultats pour " + input + "</p>");
                 jQuery.ajax({
                     url: 'index.php',
-                    data: {a: 'search', val: input},
+                    data: {a: 'searchArtists', val: input},
                     type: 'get',
                     success: function (res) {
-                        $("#resultats").html(res);
+                        $("#resultatsArtistes").html(res);
+                    }
+                });
+                jQuery.ajax({
+                    url: 'index.php',
+                    data: {a: 'searchTracks', val: input},
+                    type: 'get',
+                    success: function (res) {
+                        $("#resultatsTitres").html(res);
                     }
                 });
             }
