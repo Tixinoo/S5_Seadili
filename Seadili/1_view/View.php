@@ -1,6 +1,7 @@
 <?php
 
 include_once '0_model/User.php';
+include_once '0_model/Track.php';
 
 class View {
     /*
@@ -16,6 +17,15 @@ class View {
     }
 
     public function defaultView() {
+        include '3_content/header.php';
+        include '3_content/home.html';
+        $track= new Track();
+        $track = Track::findById(2);
+        $this->trackView($track);
+        include '3_content/footer.html';
+    }
+    
+    public function olddefaultView() {
         include '3_content/header.php';
         include '3_content/home.html';
         //Affichage de 10 titres aléatoires
@@ -139,6 +149,7 @@ class View {
         <br><audio controls=\"controls\"><source src=" . $track->mp3_url . "/></audio>
         <br><input type=\"button\" value=\"Lire\" onclick=\"playTrack('" . $track->mp3_url . "')\">
         </div>";
+        echo $track->mp3_url;
     }
 
     /**

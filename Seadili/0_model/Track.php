@@ -243,7 +243,7 @@ class Track {
             echo "Erreur pendant findByTitle: $trace";
         }
     }
-    
+
     /**
      * retourne dans un tableau d'objets Artist
      * tous les artistes contenus dans la base
@@ -281,6 +281,12 @@ class Track {
         } catch (Exception $e) {
             $trace = $e->getTrace();
             echo "Erreur pendant findAll: $trace";
+        }
+    }
+
+    public static function findRandom($number) {
+        for ($i = 0; $i < $number; $i++) {
+            $this->findById(rand(0, count($this->obj0) - 1));
         }
     }
 
