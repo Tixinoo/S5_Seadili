@@ -137,6 +137,7 @@ class View {
         $artist = Artist::findById($track->artist_id);
         echo "<i>" . $artist->name . "</i>
         <br><audio controls=\"controls\"><source src=" . $track->mp3_url . "/></audio>
+        <br><input type=\"button\" value=\"Lire\" onclick=\"playTrack('" . $track->mp3_url . "')\">
         </div>";
     }
 
@@ -153,6 +154,7 @@ class View {
         $artist = Artist::findById($track->artist_id);
         $str.= "<i>" . $artist->name . "</i>
         <br><audio controls=\"controls\"><source src=" . $track->mp3_url . "/></audio>
+        <br><input type=\"button\" value=\"Lire\" onclick=\"playTrack('" . $track->mp3_url . "')\">
         </div>";
         return $str;
     }

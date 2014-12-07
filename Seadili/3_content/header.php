@@ -11,6 +11,17 @@
 
         <script>
 
+            function playTrack(mp3url) {
+                console.log("toto");
+                var audioplayer = document.getElementById("audioplayer");
+                audioplayer.setAttribute("src", mp3url);
+                audioplayer.load();
+                audioplayer.play();
+                //document.getElementById("audioplayer").innerHTML = "toto";
+                //document.getElementById("audioplayer").setAttribute("src", mp3url);
+                console.log("coucou");
+            }
+
             function addtrackplaylist(trackid, tracktitle) {
                 document.getElementById("playlistcurrent").innerHTML = document.getElementById("playlistcurrent").innerHTML + "- (" + trackid + ") " + tracktitle + "<br/>";
                 document.getElementById("playlistadd").innerHTML = document.getElementById("playlistadd").innerHTML + "<input type=\"hidden\" name=\"tracks[]\" value=\"" + trackid + "\">";
@@ -59,6 +70,8 @@
         <title> 
             SeaDiLi 
         </title>
+        
+        <audio id="audioplayer" controls=\"controls\" src="http://freedownloads.last.fm/download/86630288/Omnipresent.mp3"></audio>
 
         <div class="titre"> 
             <h1>SeaDiLi</h1>
