@@ -19,9 +19,21 @@ class View {
     public function defaultView() {
         include '3_content/header.php';
         include '3_content/home.html';
-        $track= new Track();
-        $track = Track::findById(2);
-        $this->trackView($track);
+        echo "<h2>Titres</h2><hr><br><div id=\"resultatsTitres\">";
+        foreach (Track::findRandom(3) as $track) {
+            $this->trackView($track);
+        }
+        echo "</div>";
+        echo "<h2>Artites</h2><hr><br><div id=\"resultatsArtistes\">";
+        foreach (Artist::findRandom(3) as $artist) {
+            $this->artistView($artist);
+        }
+        echo "</div>";
+        /*echo "<h2>Playlists</h2><hr><br><div id=\"resultatsPlaylists\">";
+        foreach (Playlist::findRandom(3) as $playlist) {
+            $this->playlistView($playlist);
+        }
+        echo "</div>";*/
         include '3_content/footer.html';
     }
     
@@ -149,7 +161,6 @@ class View {
         <br><audio controls=\"controls\"><source src=" . $track->mp3_url . "/></audio>
         <br><input type=\"button\" value=\"Lire\" onclick=\"playTrack('" . $track->mp3_url . "')\">
         </div>";
-        echo $track->mp3_url;
     }
 
     /**

@@ -27,7 +27,7 @@
                 
                 audioplayer.pause();
                 audioplayer.load();
-                
+                audioplayer.play();
                 
                 
                 //document.getElementById("audioplayer").innerHTML = "toto";

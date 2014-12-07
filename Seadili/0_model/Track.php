@@ -285,9 +285,13 @@ class Track {
     }
 
     public static function findRandom($number) {
+        $track = new Track();
+        $tab = Array();
         for ($i = 0; $i < $number; $i++) {
-            $this->findById(rand(0, count($this->obj0) - 1));
+            $track = Track::findById(rand(1, 25));
+            $tab[] = $track;
         }
+        return $tab;
     }
 
 }

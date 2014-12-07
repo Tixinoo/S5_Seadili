@@ -243,5 +243,15 @@ class Artist {
             echo "Erreur pendant findAll: $trace";
         }
     }
+    
+    public static function findRandom($number) {
+        $artist = new Artist();
+        $tab = Array();
+        for ($i = 0; $i < $number; $i++) {
+            $artist = Artist::findById(rand(1, 25));
+            $tab[] = $artist;
+        }
+        return $tab;
+    }
 
 }

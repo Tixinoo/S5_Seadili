@@ -241,5 +241,15 @@ class Playlist {
             echo "Erreur pendant findAll: $trace";
         }
     }
+    
+    public static function findRandom($number) {
+        $playlist = new Playlist();
+        $tab = Array();
+        for ($i = 0; $i < $number; $i++) {
+            $playlist = Playlist::findById(rand(1, 4));
+            $tab[] = $playlist;
+        }
+        return $tab;
+    }
 
 }
