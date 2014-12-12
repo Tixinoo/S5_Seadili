@@ -1,0 +1,138 @@
+body {
+    font-family: Open Sans Condensed;
+}
+
+input {
+    font-family: Open Sans Condensed;
+}
+
+div.titre {
+    border-top: solid gray;
+    border-bottom: solid gray;
+    text-align:left;
+    padding-left: 100px;
+    font-family: Lustria;
+}
+
+div.titre h1 {
+    font-size: 50px;
+    margin-bottom: -25px;
+}
+
+div.titre h4 {
+    font-style: italic;
+}
+
+div.menu{
+    height:50px;
+}
+
+img.loupe{
+    width:15px; 
+    height:15px;
+}
+
+div.lienhome,div.lienplaylist,div.lienenreg{
+    display: inline-block;
+    border: solid rgb(220,220,220) 1px;
+    text-align: center;
+    height:50px;
+    line-height:50px; 
+    width:130px;  
+    font-weight:bold;
+}
+
+div.connexion{
+    display: inline-block;
+    text-align: right;
+    float: right;
+}
+
+input.newPlaylist {
+    position: absolute;
+    top: 70px;
+    right: 8px;
+    border: solid rgb(220,220,220) 1px;
+    padding: 8px;
+    width: 300px;
+    text-align: center; 
+}
+
+input.nomNewPlaylist {
+    position: absolute;
+    top: 100px;
+    right: 8px;
+    border: solid rgb(220,220,220) 1px;
+    padding: 8px;
+    width: 282px;
+    text-align: left; 
+}
+
+#playlistcurrent {
+    position: absolute;
+    top: 132px;
+    right: 8px;
+    border: solid rgb(220,220,220) 1px;
+    padding: 8px;
+    width: 282px;
+    text-align: left; 
+}
+
+div.morceau {
+    display: inline-block;
+    border: solid rgb(220,220,220) 1px;
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    padding: 3px;
+    margin : 3px;
+    overflow: hidden;
+}
+
+div.artiste {
+    display: inline-block;
+    border: solid rgb(220,220,220) 1px;
+    text-align: center;
+    width: 200px;
+    height: 160px;
+    padding: 3px;
+    margin : 3px;
+    overflow: hidden;
+}
+
+div.playlist {
+    display: inline-block;
+    border: solid rgb(220,220,220) 1px;
+    text-align: center;
+    padding: 3px;
+    margin : 3px;
+    width: 214px;
+    overflow: hidden;
+}
+
+div.decouverte {
+    border: groove white 2px;
+    text-align: center;
+    margin: 3px;
+    border-radius: 10px;
+    width: 400px;
+
+}
+
+div.Dplaylist {
+    background-color: silver;
+    color: black;
+    display: inline-block;
+    border: solid white 2px;
+    text-align: left;
+    padding: 3px;
+    margin : 3px;
+    width: 365px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+div.foot {
+    display: block;
+    text-align: center;
+}

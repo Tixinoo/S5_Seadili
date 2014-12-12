@@ -122,7 +122,8 @@ class View {
     public function artistView($artist) {
         echo"<div class=\"artiste\">" . $artist->name . "
         <br><img src=\"" . $artist->image_url . "\" height=\"100px\"/>
-        <br>Info : " . $artist->info . "
+        <!--<br>Info : " . $artist->info . "-->
+        <br><input type=\"button\" value=\"Info\">
         </div>";
     }
 
@@ -158,7 +159,7 @@ class View {
         </form>";
         $artist = Artist::findById($track->artist_id);
         echo "<i>" . $artist->name . "</i>
-        <br><audio controls=\"controls\"><source src=" . $track->mp3_url . "/></audio>
+        <!--<br><audio controls=\"controls\"><source src=" . $track->mp3_url . "/></audio>-->
         <br><input type=\"button\" value=\"Lire\" onclick=\"playTrack('" . $track->mp3_url . "')\">
         </div>";
     }

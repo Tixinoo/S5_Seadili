@@ -4,10 +4,12 @@ session_start();
 
 if (isset($_SESSION['username'])) {
 
+    echo "        <div class=\"connexion\">\n";
     echo "Vous êtes connectés en tant que " . $_SESSION['username'];
     echo "<form action=\"3_content/disconnection.php\" method=\"GET\">\n";
     echo "  <input class=\"bouton\" type=\"submit\" value=\"Se déconnecter\"/>\n";
     echo "</form>\n";
+    echo "        </div>\n";
     
 } else {
 

@@ -4,7 +4,8 @@
         <meta charset="utf-8">
         <meta name="author" content="SeaDiLi-Team" />
         <title>SeaDiLi</title>
-        <link rel="stylesheet" href="4_style/style.css" />
+        <link rel="stylesheet" href="4_style/style_1.css" />
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Yeseva+One' rel='stylesheet' type='text/css'/>
         <link href='http://fonts.googleapis.com/css?family=Lustria' rel='stylesheet' type='text/css'/>
         <script type="text/javascript" src="libraries/jquery-1.11.1.min.js"></script>
@@ -84,14 +85,22 @@
             SeaDiLi 
         </title>
         
-        <audio src="http://freedownloads.last.fm/download/86630288/Omnipresent.mp3" controls="controls">
-        </audio>
+        <div id="player">
+            <audio src="http://freedownloads.last.fm/download/86630288/Omnipresent.mp3" controls="controls">
+            </audio>
+        </div>
 
         <div class="titre"> 
             <h1>SeaDiLi</h1>
-            <h4><i>Search.Discover.Listen</i></h4>
+            <h4>Search.Discover.Listen</h4>
         </div>
 
+        <div class="menu">
+            <a href="index.php?a=home"><div class="lienhome">Accueil</div></a>
+            <a href="index.php?a=playlists"><div class="lienplaylist">Playlists</div></a>
+            <a href="index.php?a=register"><div class="lienenreg">S'enregistrer</div></a>
+        </div>
+        
         <div id="playlistcurrent">
         </div>
 
@@ -101,9 +110,3 @@
             <input class="newPlaylist" type="submit" name="nouvellePlaylist" value="Créer Playlist"/>
             <input class="nomNewPlaylist" type="text" name="nomNouvellePlaylist" value="Nom de la Playlist"/>
         </form>
-
-        <div class="menu">
-            <a href="index.php?a=home"><div class="lienhome">Accueil</div></a>
-            <a href="index.php?a=playlists"><div class="lienplaylist">Playlists</div></a>
-            <a href="index.php?a=register"><div class="lienenreg">S'enregistrer</div></a>
-        </div>
