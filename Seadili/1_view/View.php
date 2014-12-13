@@ -123,7 +123,7 @@ class View {
         echo"<div class=\"artiste\">" . $artist->name . "
         <br><img src=\"" . $artist->image_url . "\" height=\"100px\"/>
         <!--<br>Info : " . $artist->info . "-->
-        <br><input type=\"button\" value=\"Info\">
+        <br><input type=\"image\" height=\"20px\" src=\"http://localhost/Seadili/Seadili/5_images/info.png\" value=\"Info\">
         </div>";
     }
 
@@ -151,7 +151,7 @@ class View {
      * Affiche un titre
      * @param $track Titre à afficher
      */
-    public function trackView($track) {
+    public function oldtrackView($track) {
         echo"<div class=\"morceau\">" . $track->title;
         echo
         "<form name=\"addtrack\" method=\"POST\">
@@ -162,6 +162,22 @@ class View {
         <!--<br><audio controls=\"controls\"><source src=" . $track->mp3_url . "/></audio>-->
         <br><input type=\"button\" value=\"Lire\" onclick=\"playTrack('" . $track->mp3_url . "')\">
         </div>";
+    }
+    /**
+     * Affiche un titre
+     * @param $track Titre à afficher
+     */
+    public function trackView($track) {
+        $artist = Artist::findById($track->artist_id);
+        echo"<div class=\"morceau\">";
+        echo "<input type=\"image\" height=\"20px\" src=\"http://localhost/Seadili/Seadili/5_images/play.png\" value=\"Lire\" onclick=\"playTrack('" . $track->mp3_url . "')\">";
+        echo "<br>" . $track->title;
+        echo "<br><i>" . $artist->name . "toto</i>";
+        echo
+        "<form name=\"addtrack\" method=\"POST\">
+	<input type=\"image\" height=\"25px\" src=\"http://localhost/Seadili/Seadili/5_images/add.png\" value=\"Ajouter\"  onclick=\"addtrackplaylist(" . $track->track_id . ",'" . $track->title . "')\">        
+        </form>";
+        echo "</div>";
     }
 
     /**

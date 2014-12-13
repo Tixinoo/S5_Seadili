@@ -7,11 +7,12 @@ input {
 }
 
 div.titre {
+    /*background-image: url(http://localhost/Seadili/Seadili/5_images/backgroundheader2.jpg); 
     border-top: solid gray;
-    border-bottom: solid gray;
-    text-align:left;
-    padding-left: 100px;
+    border-bottom: solid gray;*/
+    text-align:center;
     font-family: Lustria;
+    color: black;
 }
 
 div.titre h1 {
@@ -24,7 +25,8 @@ div.titre h4 {
 }
 
 div.menu{
-    height:50px;
+    height:100px;
+    text-align: center;
 }
 
 img.loupe{
@@ -34,12 +36,10 @@ img.loupe{
 
 div.lienhome,div.lienplaylist,div.lienenreg{
     display: inline-block;
-    border: solid rgb(220,220,220) 1px;
+    padding-top: 10px;
     text-align: center;
-    height:50px;
-    line-height:50px; 
-    width:130px;  
-    font-weight:bold;
+    width:130px; 
+    border-bottom: solid rgb(220,220,220) 1px;
 }
 
 div.connexion{
@@ -130,6 +130,44 @@ div.Dplaylist {
     width: 365px;
     cursor: pointer;
     overflow: hidden;
+}
+
+div.inscription{
+    margin: auto;
+    width: 455px;
+}
+
+input.champ{
+    padding:3px;
+    border:1px solid white;
+    width:150px;
+    box-shadow:1px 1px 2px Silver inset;
+}
+
+label.lab + input.champ{
+    margin-bottom: 10px;
+}
+
+label.lab{
+    display:inline-block;
+    width:210px;
+    text-align: right;
+    margin-right: 5px;
+}
+
+div.input{
+    text-align:right; 
+    position:relative; 
+    padding-top:15px;
+    padding-right:10px;
+}
+
+div.confirm {
+    text-align: center;
+}
+
+div.confirm input{
+    font-size: 14px;
 }
 
 div.foot {

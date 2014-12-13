@@ -39,6 +39,7 @@
             function addtrackplaylist(trackid, tracktitle) {
                 document.getElementById("playlistcurrent").innerHTML = document.getElementById("playlistcurrent").innerHTML + "- (" + trackid + ") " + tracktitle + "<br/>";
                 document.getElementById("playlistadd").innerHTML = document.getElementById("playlistadd").innerHTML + "<input type=\"hidden\" name=\"tracks[]\" value=\"" + trackid + "\">";
+                console.log("ahah");
             }
 
             function playlist(id) {
@@ -72,6 +73,20 @@
                     }
                 });
             }
+            
+            function menu(nom) {
+                switch(nom) {
+                    case 'home':
+                        var e = document.getElementById("h");
+                        e.style.backgroundColor = "red";
+                        console.log("ici");
+                        break;
+                    case 'playlists':
+                        break;
+                    case 'register':
+                        break;
+                }
+            }
 
         </script>
 
@@ -96,9 +111,9 @@
         </div>
 
         <div class="menu">
-            <a href="index.php?a=home"><div class="lienhome">Accueil</div></a>
-            <a href="index.php?a=playlists"><div class="lienplaylist">Playlists</div></a>
-            <a href="index.php?a=register"><div class="lienenreg">S'enregistrer</div></a>
+            <a href="index.php?a=home" ><div id ="h" class="lienhome"><img onclick="menu('home')" height="35px" src="http://localhost/Seadili/Seadili/5_images/home.png"/></div></a>
+            <a id ="p" href="index.php?a=playlists" onclick="menu('playlists')"><div class="lienplaylist"><img height="35px" src="http://localhost/Seadili/Seadili/5_images/playlist.png"/></div></a>
+            <a id ="r" href="index.php?a=register" onclick="menu('register')"><div class="lienenreg"><img height="35px" src="http://localhost/Seadili/Seadili/5_images/register.png"/></div></a>
         </div>
         
         <div id="playlistcurrent">
