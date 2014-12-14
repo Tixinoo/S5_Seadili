@@ -16,12 +16,17 @@ div.player {
 
 
 div.titre {
-    /*background-image: url(http://localhost/Seadili/Seadili/5_images/backgroundheader2.jpg); 
+    /*background-image: url(http://localhost/Seadili/Seadili/5_images/logo/tmp2.jpg);
     border-top: solid gray;
     border-bottom: solid gray;*/
-    text-align:center;
+    display: inline-block;
     font-family: Advent Pro;
     color: black;
+    width: 40%;
+}
+
+div.titre img {
+    height: 320px;
 }
 
 div.titre h1 {
@@ -43,8 +48,8 @@ div.menu{
 }
 
 img.loupe{
-    width:22px; 
-    height:22px;
+    width:40px; 
+    height:32px;
 }
 
 div.lienhome,div.lienplaylist,div.lienenreg{
@@ -145,6 +150,14 @@ div.artiste {
     padding: 3px;
     margin : 3px;
     overflow: hidden;
+}
+
+div.infoartist {
+    text-align: center;
+    padding: 10px;
+    background-color: white;
+    border: solid red 1px;
+    
 }
 
 div.playlist {

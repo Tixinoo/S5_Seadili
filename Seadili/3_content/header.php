@@ -12,10 +12,38 @@
         <link href='http://fonts.googleapis.com/css?family=Advent+Pro' rel='stylesheet' type='text/css'>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="js/audioplayer.js"></script>
+        <script type="text/javascript" src="js/jquery.easyModal.js"></script>
         <script>$(function () {
                 $('audio').audioPlayer();
             });</script>
 
+	<script type="text/javascript">
+	$(function() {
+		$('.easy-modal').easyModal({
+			top: 200,
+			overlay: 0.2
+		});
+
+		$('.easy-modal-open').click(function(e) {
+			var target = $(this).attr('href');
+			$(target).trigger('openModal');
+			e.preventDefault();
+		});
+
+		$('.easy-modal-close').click(function(e) {
+			$('.easy-modal').trigger('closeModal');
+		});
+
+		$('.easy-modal-animated').easyModal({
+			top: 200,
+			overlay: 0.2,
+			transitionIn: 'animated bounceInLeft',
+			transitionOut: 'animated bounceOutRight',
+			closeButtonClass: '.animated-close'
+		});
+	});
+	</script>   
+        
         <script>
             function playTrack(mp3url) {
                 console.log("toto");
@@ -98,12 +126,9 @@
     </head>
 
     <body>
-
-        <?php include '3_content/connecting_bar.php'; ?>
-
-        <title>
-            SeaDiLi 
-        </title>
+ 
+        
+        <!-- <?php include '3_content/connecting_bar.php'; ?> -->
 
         <!--<div class="player">
             <audio preload="auto" src="http://freedownloads.last.fm/download/86630288/Omnipresent.mp3" controls>
@@ -111,9 +136,16 @@
         </div>-->
 
         <div class="titre"> 
-            <h1>SeaDiLi</h1>
-            <h4>Search.Discover.Listen</h4>
+            <img src="http://localhost/Seadili/Seadili/5_images/logo/tmp2.jpg"/>
         </div>
+
+        <?php
+        echo "<div style=\"display:inline-block; float:right; width:60%; margin:auto;\">";
+        echo "<h2>Votre écoute</h2><hr><br>";
+        include '3_content/player.html';
+        echo "\n";
+        echo "</div>";
+        ?>
 
         <div class="menu">
             <a href="index.php?a=home" ><div id ="h" class="lienhome"><img onclick="menu('home')" height="35px" src="http://localhost/Seadili/Seadili/5_images/home.png"/></div></a>
