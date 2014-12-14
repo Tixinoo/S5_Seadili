@@ -5,32 +5,37 @@
         <meta name="author" content="SeaDiLi-Team" />
         <title>SeaDiLi</title>
         <link rel="stylesheet" href="4_style/style_1.css" />
+        <link rel="stylesheet" href="4_style/audioplayer.css" />
         <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Yeseva+One' rel='stylesheet' type='text/css'/>
         <link href='http://fonts.googleapis.com/css?family=Lustria' rel='stylesheet' type='text/css'/>
-        <script type="text/javascript" src="libraries/jquery-1.11.1.min.js"></script>
+        <link href='http://fonts.googleapis.com/css?family=Advent+Pro' rel='stylesheet' type='text/css'>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="js/audioplayer.js"></script>
+        <script>$(function () {
+                $('audio').audioPlayer();
+            });</script>
 
         <script>
-
             function playTrack(mp3url) {
                 console.log("toto");
                 console.log(mp3url);
                 /*var audioplayer = document.getElementById("audioplayer");
-                audioplayer.setAttribute("src", mp3url);
-                audioplayer.load();
-                audioplayer.play();*/
-        
+                 audioplayer.setAttribute("src", mp3url);
+                 audioplayer.load();
+                 audioplayer.play();*/
+
                 //var source = document.getElementsByTagName("source")[0];
-                
+
                 var audioplayer = document.getElementsByTagName("audio")[0];
-                                
+
                 audioplayer.setAttribute("src", mp3url);
-                
+
                 audioplayer.pause();
                 audioplayer.load();
                 audioplayer.play();
-                
-                
+
+
                 //document.getElementById("audioplayer").innerHTML = "toto";
                 //document.getElementById("audioplayer").setAttribute("src", mp3url);
                 console.log("coucou");
@@ -73,9 +78,9 @@
                     }
                 });
             }
-            
+
             function menu(nom) {
-                switch(nom) {
+                switch (nom) {
                     case 'home':
                         var e = document.getElementById("h");
                         e.style.backgroundColor = "red";
@@ -96,14 +101,14 @@
 
         <?php include '3_content/connecting_bar.php'; ?>
 
-        <title> 
+        <title>
             SeaDiLi 
         </title>
-        
-        <div id="player">
-            <audio src="http://freedownloads.last.fm/download/86630288/Omnipresent.mp3" controls="controls">
+
+        <!--<div class="player">
+            <audio preload="auto" src="http://freedownloads.last.fm/download/86630288/Omnipresent.mp3" controls>
             </audio>
-        </div>
+        </div>-->
 
         <div class="titre"> 
             <h1>SeaDiLi</h1>
@@ -115,13 +120,3 @@
             <a id ="p" href="index.php?a=playlists" onclick="menu('playlists')"><div class="lienplaylist"><img height="35px" src="http://localhost/Seadili/Seadili/5_images/playlist.png"/></div></a>
             <a id ="r" href="index.php?a=register" onclick="menu('register')"><div class="lienenreg"><img height="35px" src="http://localhost/Seadili/Seadili/5_images/register.png"/></div></a>
         </div>
-        
-        <div id="playlistcurrent">
-        </div>
-
-        <form action="0_model/playlistadd.php" method="POST">
-            <div id="playlistadd">
-            </div>
-            <input class="newPlaylist" type="submit" name="nouvellePlaylist" value="Créer Playlist"/>
-            <input class="nomNewPlaylist" type="text" name="nomNouvellePlaylist" value="Nom de la Playlist"/>
-        </form>

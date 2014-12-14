@@ -1,23 +1,36 @@
 body {
     font-family: Open Sans Condensed;
+    font-size: 1.5em;
 }
 
 input {
     font-family: Open Sans Condensed;
+    font-size: 0.8em;
 }
+
+div.player {
+    margin: auto;
+    text-align: center;
+    width: 70%;
+}
+
 
 div.titre {
     /*background-image: url(http://localhost/Seadili/Seadili/5_images/backgroundheader2.jpg); 
     border-top: solid gray;
     border-bottom: solid gray;*/
     text-align:center;
-    font-family: Lustria;
+    font-family: Advent Pro;
     color: black;
 }
 
 div.titre h1 {
     font-size: 50px;
     margin-bottom: -25px;
+}
+
+h2 {
+    margin-bottom: -10px;
 }
 
 div.titre h4 {
@@ -30,8 +43,8 @@ div.menu{
 }
 
 img.loupe{
-    width:15px; 
-    height:15px;
+    width:22px; 
+    height:22px;
 }
 
 div.lienhome,div.lienplaylist,div.lienenreg{
@@ -43,11 +56,22 @@ div.lienhome,div.lienplaylist,div.lienenreg{
 }
 
 div.connexion{
-    display: inline-block;
     text-align: right;
-    float: right;
 }
 
+div.page {
+    text-align: center;
+}
+
+input.recherche{
+    padding:3px;
+    border:1px solid black;
+    /*border-radius:7px;*/
+    width:500px;
+    box-shadow:1px 1px 2px Silver inset;
+}
+
+/*
 input.newPlaylist {
     position: absolute;
     top: 70px;
@@ -77,12 +101,35 @@ input.nomNewPlaylist {
     width: 282px;
     text-align: left; 
 }
+*/
+
+input.newPlaylist {
+    border: solid rgb(220,220,220) 1px;
+    padding: 8px;
+    width: 100px;
+    text-align: center;
+}
+
+input.nomNewPlaylist {
+    border: solid red 1px;
+    padding: 8px;
+    width: 96%;
+    text-align: left; 
+}
+
+#playlistcurrent {
+    border: solid rgb(220,220,220) 1px;
+    padding: 8px;
+    width: 96%;
+    text-align: left; 
+}
 
 div.morceau {
     display: inline-block;
     border: solid rgb(220,220,220) 1px;
     text-align: center;
-    width: 200px;
+    font-size: 0.7em;
+    width: 210px;
     height: 100px;
     padding: 3px;
     margin : 3px;
@@ -94,7 +141,7 @@ div.artiste {
     border: solid rgb(220,220,220) 1px;
     text-align: center;
     width: 200px;
-    height: 160px;
+    height: 170px;
     padding: 3px;
     margin : 3px;
     overflow: hidden;
@@ -134,12 +181,12 @@ div.Dplaylist {
 
 div.inscription{
     margin: auto;
-    width: 455px;
+    width: 500px;
 }
 
 input.champ{
     padding:3px;
-    border:1px solid white;
+    border:1px solid black;
     width:150px;
     box-shadow:1px 1px 2px Silver inset;
 }
@@ -150,7 +197,7 @@ label.lab + input.champ{
 
 label.lab{
     display:inline-block;
-    width:210px;
+    width:220px;
     text-align: right;
     margin-right: 5px;
 }

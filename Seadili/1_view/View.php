@@ -18,7 +18,10 @@ class View {
 
     public function defaultView() {
         include '3_content/header.php';
+        
         include '3_content/home.html';
+        
+        echo "<div style=\"display:inline-block; float:left; width:58%; \">";
         echo "<h2>Titres</h2><hr><br><div id=\"resultatsTitres\">";
         foreach (Track::findRandom(3) as $track) {
             $this->trackView($track);
@@ -29,14 +32,29 @@ class View {
             $this->artistView($artist);
         }
         echo "</div>";
-        /*echo "<h2>Playlists</h2><hr><br><div id=\"resultatsPlaylists\">";
-        foreach (Playlist::findRandom(3) as $playlist) {
-            $this->playlistView($playlist);
-        }
-        echo "</div>";*/
+        /* echo "<h2>Playlists</h2><hr><br><div id=\"resultatsPlaylists\">";
+          foreach (Playlist::findRandom(3) as $playlist) {
+          $this->playlistView($playlist);
+          }
+          echo "</div>"; */
+        echo "</div>";
+
+        echo "<div style=\"display:inline-block; float:right; width:39%; margin:auto;\">";
+        echo "<h2>Votre écoute</h2><hr><br>";
+        include '3_content/player.html';
+        echo "\n";
+        echo "</div>";
+
+        echo "<div style=\"display:inline-block; float:right; width:39%; margin:auto;\">";
+        echo "<h2>Votre nouvelle playlist</h2><hr><br>";
+        include '3_content/newplaylist.html';
+        echo "</div>";
+        
+        echo "<div style=\"display:inline; float:right; width:100%;\">";
         include '3_content/footer.html';
+        echo "</div>";
     }
-    
+
     public function olddefaultView() {
         include '3_content/header.php';
         include '3_content/home.html';
@@ -94,7 +112,7 @@ class View {
             </div>
         </div>";
 
-        if(isset($_SESSION['user'])) {
+        if (isset($_SESSION['user'])) {
             $u = new User();
             $u = $_SESSION['user'];
             $t = Playlist::findByUserid($u->user_id);
@@ -151,7 +169,7 @@ class View {
      * Affiche un titre
      * @param $track Titre à afficher
      */
-    public function oldtrackView($track) {
+    public function trackView($track) {
         echo"<div class=\"morceau\">" . $track->title;
         echo
         "<form name=\"addtrack\" method=\"POST\">
@@ -163,11 +181,12 @@ class View {
         <br><input type=\"button\" value=\"Lire\" onclick=\"playTrack('" . $track->mp3_url . "')\">
         </div>";
     }
+
     /**
      * Affiche un titre
      * @param $track Titre à afficher
      */
-    public function trackView($track) {
+    public function tttrackView($track) {
         $artist = Artist::findById($track->artist_id);
         echo"<div class=\"morceau\">";
         echo "<input type=\"image\" height=\"20px\" src=\"http://localhost/Seadili/Seadili/5_images/play.png\" value=\"Lire\" onclick=\"playTrack('" . $track->mp3_url . "')\">";
