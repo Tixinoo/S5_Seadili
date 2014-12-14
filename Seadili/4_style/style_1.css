@@ -141,10 +141,22 @@ div.morceau {
     overflow: hidden;
 }
 
+div.morceauInline {
+    display: inline-block;
+    border: solid rgb(220,220,220) 1px;
+    text-align: left;
+    font-size: 0.8em;
+    width: 300px;
+    padding: 1px;
+    margin : 1px;
+    overflow: hidden;
+}
+
 div.artiste {
     display: inline-block;
     border: solid rgb(220,220,220) 1px;
     text-align: center;
+    font-size: 0.8em;
     width: 200px;
     height: 170px;
     padding: 3px;
@@ -162,11 +174,12 @@ div.infoartist {
 
 div.playlist {
     display: inline-block;
+    float: top;
     border: solid rgb(220,220,220) 1px;
     text-align: center;
     padding: 3px;
     margin : 3px;
-    width: 214px;
+    width: 310px;
     overflow: hidden;
 }
 

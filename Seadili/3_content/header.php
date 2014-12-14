@@ -13,6 +13,16 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="js/audioplayer.js"></script>
         <script type="text/javascript" src="js/jquery.easyModal.js"></script>
+
+
+    </head>
+
+    <body>
+        
+        <?php
+        include_once '3_content/connecting_bar.php';
+        ?>
+
         <script>$(function () {
                 $('audio').audioPlayer();
             });</script>
@@ -85,6 +95,16 @@
                 }
 
             }
+            
+            function showPlaylist(pid) {
+                if (document.getElementById(pid).style.display == "none") {
+                    document.getElementById(pid).style.display = "block";
+                }
+                else {
+                    document.getElementById(pid).style.display = "none";
+                }
+
+            }
 
             function search() {
                 var input = $("#rechercher").val();
@@ -122,19 +142,7 @@
             }
 
         </script>
-
-    </head>
-
-    <body>
- 
         
-        <!-- <?php include '3_content/connecting_bar.php'; ?> -->
-
-        <!--<div class="player">
-            <audio preload="auto" src="http://freedownloads.last.fm/download/86630288/Omnipresent.mp3" controls>
-            </audio>
-        </div>-->
-
         <div class="titre"> 
             <img src="http://localhost/Seadili/Seadili/5_images/logo/tmp2.jpg"/>
         </div>
