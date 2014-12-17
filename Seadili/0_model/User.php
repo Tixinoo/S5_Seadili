@@ -215,9 +215,6 @@ class User {
             // Exécution de la requête préparée
             $statement->execute();
 
-            // Récupération de tous les tuples de la table User
-            $row = $statement->fetch(PDO::FETCH_ASSOC);
-
             $tab = Array();
             // Tant que des lignes sont retournées
             while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
