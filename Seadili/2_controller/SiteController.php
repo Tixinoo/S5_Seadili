@@ -14,6 +14,7 @@ class SiteController extends Controller {
             'home' => 'defaultAction',
             'playlists' => 'playlistsAction',
             'register' => 'registerAction',
+            'done' => 'doneAction',
             'searchTracks' => 'searchTracksAction',
             'searchArtists' => 'searchArtistsAction'
         );
@@ -38,6 +39,12 @@ class SiteController extends Controller {
         $o = NULL;
         $view = new View($o,$o,$o);
         $view->registerView();
+    }
+    
+    public function doneAction() {
+        $o = NULL;
+        $view = new View($o,$o,$o);
+        $view->doneView();
     }
     
     public function searchTracksAction() {
