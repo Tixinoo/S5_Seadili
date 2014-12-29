@@ -130,6 +130,12 @@ class View {
         include '3_content/register.html';
         include '3_content/footer.html';
     }
+    
+    public function doneView() {
+        include '3_content/header.php';
+        include '3_content/register.php';
+        include '3_content/footer.html';
+    }
 
     // Méthodes d'affichage des différents éléments
 
