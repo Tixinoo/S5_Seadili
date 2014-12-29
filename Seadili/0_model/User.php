@@ -10,8 +10,13 @@ class User {
      */
     private $user_id, $username, $password, $email;
 
-    public function __construct() {}
-
+    public function __construct($userid, $username, $password, $mail ) {
+        $this->user_id = $userid;
+        $this->username = $username;
+        $this->password = $password;
+        $this->email = $mail;
+    }
+    
     /**
      * retourne un attribut suivant son nom
      * s'il existe
@@ -112,8 +117,9 @@ class User {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            $query = "INSERT INTO users (username,password,email) VALUES(:username,:imageurl,:email)";
+            $query = "INSERT INTO users (user_id,username,password,email) VALUES(:userid,:username,:imageurl,:email)";
             $statement = $db->prepare($query);
+            $statement->bindParam(':userid', $this->user_id);
             $statement->bindParam(':username', $this->username);
             $statement->bindParam(':imageurl', $this->password);
             $statement->bindParam(':email', $this->email);
@@ -232,6 +238,54 @@ class User {
         } catch (Exception $e) {
             $trace = $e->getTrace();
             echo "Erreur pendant findAll: $trace";
+        }
+    }
+    
+    public static function checkUsername($username) {
+        try {
+            // Récupération d'une connexion à la base
+            $db = DataBase::getConnection();
+
+            // Création de la requête préparée
+            $query = "SELECT COUNT(*) FROM users WHERE username = :username" ;
+            $statement = $db->prepare($query);
+
+            $statement->bindParam(':username', $username);
+
+            // Exécution de la requête préparée
+            $statement->execute();
+
+            $row = $statement->fetch(PDO::FETCH_NUM);
+            return $row[0];
+
+        } catch (Exception $e) {
+            $trace = $e->getTrace();
+            echo "Erreur pendant checkUsername: $trace";
+        }
+    }
+    
+    public static function newId() {
+        try {
+            // Récupération d'une connexion à la base
+            $db = DataBase::getConnection();
+
+            // Création de la requête préparée
+            $query = "SELECT COUNT(*) FROM users";
+            $statement = $db->prepare($query);
+
+            // Exécution de la requête préparée
+            $res = $statement->execute();
+
+            $row = $statement->fetch(PDO::FETCH_NUM);
+        
+
+            // Retour du tableau d'usere
+            
+            echo $row[0]+1;
+            return $row[0]+1;
+        } catch (Exception $e) {
+            $trace = $e->getTrace();
+            echo "Erreur pendant newId: $trace";
         }
     }
 
