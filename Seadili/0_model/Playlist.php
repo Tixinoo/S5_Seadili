@@ -241,13 +241,28 @@ class Playlist {
             echo "Erreur pendant findAll: $trace";
         }
     }
+	
     
     public static function findRandom($number) {
+	
+	//Permet de trouver le nombre de playlist dans la bdd (et donc faire le random entre 1 et ce nombre)
+	$res = $bdd->query('select count(*) as nb from playlist');
+	$data = $res->fetch();
+	$nb = $data['nb'];
+	
+	//Evitez les doublons ici
         $playlist = new Playlist();
         $tab = Array();
         for ($i = 0; $i < $number; $i++) {
-            $playlist = Playlist::findById(rand(1, 4));
-            $tab[] = $playlist;
+            $playlist = Playlist::findById(rand(1, $nb));
+            $tab[$i] = $playlist;
+			for($j =0; $j<$i; $j++){
+				while($tab[$i]== $tab[$j]){
+					$track = Playlist::findById(rand(1, $nb));
+					$tab[$i] = $playlist;
+					$j=0;
+				}
+			}			
         }
         return $tab;
     }

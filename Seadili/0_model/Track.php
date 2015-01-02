@@ -290,15 +290,23 @@ class Track {
 	*@return un tableau de Track aléatoire en fonction de l'id sans doublon
 	*/
     public static function findRandom($number) {
+	
+	//Permet de compter le nombre de lignes sql dans tracks
+	$res = $bdd->query('select count(*) as nb from tracks');
+	$data = $res->fetch();
+	$nb = $data['nb'];
+	
+	//Boucle permettant d'évitez tous les doublons
         $track = new Track();
         $tab = Array();
         for ($i = 0; $i < $number; $i++) {
-            $track = Track::findById(rand(1, 25));
-            $tab[] = $track;
+            $track = Track::findById(rand(1, $nb));
+            $tab[$i] = $track;
 			for($j =0; $j<$i; $j++){
 				while($tab[$i]== $tab[$j]){
-					$track = Track::findById(rand(1, 25));
-					$tab[] = $track;
+					$track = Track::findById(rand(1, $nb));
+					$tab[$i] = $track;
+					$j=0;
 				}
 			}
         }
