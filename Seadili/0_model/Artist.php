@@ -261,7 +261,7 @@ class Artist {
 			for($j =0; $j<$i; $j++){
 				while($tab[$i]== $tab[$j]){
 					$track = Artist::findById(rand(1, $nb));
-					$tab[$i] = $playlist;
+					$tab[$i] = $artist;
 					$j=0;
 				}
 			}			
