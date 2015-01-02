@@ -292,7 +292,8 @@ class Track {
     public static function findRandom($number) {
 	
 	//Permet de compter le nombre de lignes sql dans tracks
-	$res = $bdd->query('select count(*) as nb from tracks');
+	$db = DataBase::getConnection();
+	$res = $db->query('select count(*) as nb from tracks');
 	$data = $res->fetch();
 	$nb = $data['nb'];
 	

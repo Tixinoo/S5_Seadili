@@ -246,7 +246,8 @@ class Playlist {
     public static function findRandom($number) {
 	
 	//Permet de trouver le nombre de playlist dans la bdd (et donc faire le random entre 1 et ce nombre)
-	$res = $bdd->query('select count(*) as nb from playlist');
+	$db = DataBase::getConnection();
+	$res = $db->query('select count(*) as nb from playlists');
 	$data = $res->fetch();
 	$nb = $data['nb'];
 	
