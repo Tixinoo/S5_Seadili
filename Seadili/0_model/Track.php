@@ -283,13 +283,24 @@ class Track {
             echo "Erreur pendant findAll: $trace";
         }
     }
-
+	
+	
+	/**
+	*Permet de trouver des tracks aléatoire
+	*@return un tableau de Track aléatoire en fonction de l'id sans doublon
+	*/
     public static function findRandom($number) {
         $track = new Track();
         $tab = Array();
         for ($i = 0; $i < $number; $i++) {
             $track = Track::findById(rand(1, 25));
             $tab[] = $track;
+			for($j =0; $j<$i; $j++){
+				while($tab[$i]== $tab[$j]){
+					$track = Track::findById(rand(1, 25));
+					$tab[] = $track;
+				}
+			}
         }
         return $tab;
     }
