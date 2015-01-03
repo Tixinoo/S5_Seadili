@@ -27,7 +27,7 @@ class View {
             $this->trackView($track);
         }
         echo "</div>";
-        
+
         echo "<h2>Artistes</h2><hr><br><div id=\"resultatsArtistes\">";
         foreach (Artist::findRandom(4) as $artist) {
             $this->artistView($artist);
@@ -131,7 +131,7 @@ class View {
         include '3_content/register.html';
         include '3_content/footer.html';
     }
-    
+
     public function doneView() {
         include '3_content/header.php';
         include '3_content/register.php';
@@ -166,11 +166,11 @@ class View {
         $str.= "</div>\n";
         return $str;
         /* OLD :
-        $str = "<div class=\"artiste\">" . $artist->name . "
-        <br><img src=\"" . $artist->image_url . "\" height=\"100px\"/>
-        <br>Info : " . $artist->info . "
-        </div>";
-        return $str; */
+          $str = "<div class=\"artiste\">" . $artist->name . "
+          <br><img src=\"" . $artist->image_url . "\" height=\"100px\"/>
+          <br>Info : " . $artist->info . "
+          </div>";
+          return $str; */
     }
 
     public function artistsView($artists) {
@@ -218,17 +218,17 @@ class View {
         $str.= "</div>";
         return $str;
         /* OLD:
-        $str = "<div class=\"morceau\">" . $track->title;
-        $str.=
-                "<form name=\"addtrack\" method=\"POST\">
-	<input type=\"button\" value=\"Ajouter\"  onclick=\"addtrackplaylist(" . $track->track_id . ",'" . $track->title . "')\">
-        </form>";
-        $artist = Artist::findById($track->artist_id);
-        $str.= "<i>" . $artist->name . "</i>
-        <br><audio controls=\"controls\"><source src=" . $track->mp3_url . "/></audio>
-        <br><input type=\"button\" value=\"Lire\" onclick=\"playTrack('" . $track->mp3_url . "')\">
-        </div>";
-        return $str; */
+          $str = "<div class=\"morceau\">" . $track->title;
+          $str.=
+          "<form name=\"addtrack\" method=\"POST\">
+          <input type=\"button\" value=\"Ajouter\"  onclick=\"addtrackplaylist(" . $track->track_id . ",'" . $track->title . "')\">
+          </form>";
+          $artist = Artist::findById($track->artist_id);
+          $str.= "<i>" . $artist->name . "</i>
+          <br><audio controls=\"controls\"><source src=" . $track->mp3_url . "/></audio>
+          <br><input type=\"button\" value=\"Lire\" onclick=\"playTrack('" . $track->mp3_url . "')\">
+          </div>";
+          return $str; */
     }
 
     public function tracksView($tracks) {
