@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.4
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 05 Novembre 2014 à 21:51
--- Version du serveur :  5.6.15-log
--- Version de PHP :  5.4.24
+-- Généré le :  Sam 03 Janvier 2015 à 17:25
+-- Version du serveur :  5.6.17
+-- Version de PHP :  5.5.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de données :  `music`
+-- Base de données :  `seadili-db2`
 --
 
 -- --------------------------------------------------------
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `artists` (
   `image_url` varchar(200) CHARACTER SET ascii NOT NULL,
   `info` text NOT NULL,
   PRIMARY KEY (`artist_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=51 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5283367 ;
 
 --
 -- Contenu de la table `artists`
@@ -100,7 +100,14 @@ CREATE TABLE IF NOT EXISTS `playlists` (
   `playlist_name` varchar(64) NOT NULL,
   PRIMARY KEY (`playlist_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Contenu de la table `playlists`
+--
+
+INSERT INTO `playlists` (`user_id`, `playlist_id`, `playlist_name`) VALUES
+(1, 2, 'Playlist0');
 
 -- --------------------------------------------------------
 
@@ -117,6 +124,15 @@ CREATE TABLE IF NOT EXISTS `playlists_tracks` (
   KEY `track_id` (`track_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Contenu de la table `playlists_tracks`
+--
+
+INSERT INTO `playlists_tracks` (`playlist_id`, `position`, `track_id`) VALUES
+(2, 1, 90250766),
+(2, 3, 90250811),
+(2, 2, 90250873);
+
 -- --------------------------------------------------------
 
 --
@@ -131,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `tracks` (
   `track_id_deezer` int(11) NOT NULL,
   PRIMARY KEY (`track_id`),
   KEY `artist_id` (`artist_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=201 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=90250920 ;
 
 --
 -- Contenu de la table `tracks`
