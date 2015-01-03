@@ -247,7 +247,7 @@ class View {
      * @param $playlist Playlist à afficher
      */
     public function playlistView($playlist) {
-        echo "<div class=\"playlist\" onclick=\"showPlaylist('p" . $playlist->playlist_id . "')\"><b>" . $playlist->playlist_name . "</b>";
+        echo "<div class=\"playlist\"><div onclick=\"showPlaylist('p" . $playlist->playlist_id . "')\"><b>" . $playlist->playlist_name . "</b>";
         $username = User::findById($playlist->user_id)->username;
         if ($username != "bateau") {
             echo "<br><img height=\"20px\" src=\"http://localhost/Seadili/Seadili/5_images/user.png\"/>" . $username;
@@ -255,7 +255,7 @@ class View {
             echo "<br><img height=\"20px\" src=\"http://localhost/Seadili/Seadili/5_images/alluser.png\"/>";
         }
         $tracks = Track::findByPlaylist($playlist->playlist_id);
-        echo "<div style=\"display: none;\" id=\"p" . $playlist->playlist_id . "\">";
+        echo "</div><div style=\"display: none;\" id=\"p" . $playlist->playlist_id . "\">";
         foreach ($tracks as $track) {
             $this->trackViewInline($track);
         }

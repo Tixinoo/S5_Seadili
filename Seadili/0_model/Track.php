@@ -182,9 +182,6 @@ class Track {
             // Exécution de la requête préparée
             $statement->execute();
 
-            // Récupération de tous les tuples de la table Artist
-            $row = $statement->fetch(PDO::FETCH_ASSOC);
-
             $tab = Array();
             // Tant que des lignes sont retournées
             while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
