@@ -32,7 +32,7 @@ class DataBase {
             return $seadilidb;
             
         } catch (Exception $e) {
-            throw new BaseException("Connection: $dsn ".$e->getMessage(). '<br/>');
+            throw new Exception("Connection: $dsn ".$e->getMessage(). '<br/>');
         }
     }
     

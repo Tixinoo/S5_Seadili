@@ -135,7 +135,7 @@ class Playlist {
      * les informations de la base
      * relative au titre dont l'id
      * est celui donné en paramètre
-     * @param $id identifiant de l'ariste dans la base
+     * @param $id identifiant de la playlist dans la base
      * @return un objet Playlist rempli avec les informations contenues dans la base
      */
     public static function findById($id) {
@@ -160,7 +160,7 @@ class Playlist {
             $playlist->playlist_name = $row['playlist_name'];
             $playlist->user_id = $row['user_id'];
             
-            // Retour de l'artiste
+            // Retour de la playlist
             return $playlist;
         } catch (Exception $e) {
             $trace = $e->getTrace();
@@ -168,6 +168,13 @@ class Playlist {
         }
     }
     
+    /**
+     * retourne dans un tableau de Playlist
+     * relative à l'utilisateur dont l'id
+     * est celui donné en paramètre
+     * @param $userid identifiant de l'utilisateur dans la base
+     * @return un tableau de Playlist rempli avec les informations contenues dans la base
+     */
     public static function findByUserid($userid) {
         try {
             // Récupération d'une connexion à la base
@@ -181,9 +188,6 @@ class Playlist {
             // Exécution de la requête préparée
             $statement->execute();
 
-            // Récupération de tous les tuples de la table Artist
-            //$row = $statement->fetch(PDO::FETCH_OBJ);
-
             $tab = Array();
             // Tant que des lignes sont retournées
             while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
@@ -195,7 +199,7 @@ class Playlist {
                 $tab[] = $playlist;
             }
 
-            // Retour du tableau d'artiste
+            // Retour du tableau de playlists
             return $tab;
         } catch (Exception $e) {
             $trace = $e->getTrace();
@@ -204,9 +208,9 @@ class Playlist {
     }
 
     /**
-     * retourne dans un tableau d'objets Artist
-     * tous les artistes contenus dans la base
-     * @return un tableau d'objets Artist rempli avec les artistes contenues dans la base
+     * retourne dans un tableau d'objets Playlist
+     * tous les playlists contenus dans la base
+     * @return un tableau d'objets Playlist rempli avec les playlists contenues dans la base
      */
     public static function findAll() {
         try {
@@ -220,9 +224,6 @@ class Playlist {
             // Exécution de la requête préparée
             $statement->execute();
 
-            // Récupération de tous les tuples de la table Artist
-            //$row = $statement->fetch(PDO::FETCH_OBJ);
-
             $tab = Array();
             // Tant que des lignes sont retournées
             while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
@@ -234,7 +235,7 @@ class Playlist {
                 $tab[] = $playlist;
             }
 
-            // Retour du tableau d'artiste
+            // Retour du tableau de playlists
             return $tab;
         } catch (Exception $e) {
             $trace = $e->getTrace();
@@ -257,9 +258,6 @@ class Playlist {
             // Exécution de la requête préparée
             $statement->execute();
 
-            // Récupération de tous les tuples de la table Artist
-            //$row = $statement->fetch(PDO::FETCH_OBJ);
-
             $tab = Array();
             // Tant que des lignes sont retournées
             while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
@@ -271,35 +269,12 @@ class Playlist {
                 $tab[] = $playlist;
             }
 
-            // Retour du tableau d'artiste
+            // Retour du tableau de playlists
             return $tab;
         } catch (Exception $e) {
             $trace = $e->getTrace();
             echo "Erreur pendant findAll: $trace";
         }
-        
-        /* BUG :
-	//Permet de trouver le nombre de playlist dans la bdd (et donc faire le random entre 1 et ce nombre)
-	$db = DataBase::getConnection();
-	$res = $db->query('select count(*) as nb from playlists');
-	$data = $res->fetch();
-	$nb = $data['nb'];
-	
-	//Evitez les doublons ici
-        $playlist = new Playlist();
-        $tab = Array();
-        for ($i = 0; $i < $number; $i++) {
-            $playlist = Playlist::findById(rand(1, $nb));
-            $tab[$i] = $playlist;
-			for($j =0; $j<$i; $j++){
-				while($tab[$i]== $tab[$j]){
-					$track = Playlist::findById(rand(1, $nb));
-					$tab[$i] = $playlist;
-					$j=0;
-				}
-			}			
-        }
-        return $tab; */
     }
 
 }

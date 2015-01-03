@@ -5,7 +5,7 @@ include_once 'DataBase.php';
 class Playlist_tracks {
 
     /**
-     * Attributs d'un titre
+     * Attributs d'un objet playlist_tracks
      * (correspondent aux colonnes de la table 'Playlist_tracks')
      */
     private $playlist_id, $position, $track_id;
@@ -132,7 +132,7 @@ class Playlist_tracks {
      * les informations de la base
      * relative au titre dont l'id
      * est celui donné en paramètre
-     * @param $id identifiant de l'ariste dans la base
+     * @param $id identifiant de l'objet playlist_tracks dans la base
      * @return un objet Playlist_tracks rempli avec les informations contenues dans la base
      */
     public static function findById($id) {
@@ -157,7 +157,7 @@ class Playlist_tracks {
             $playlist->position = $row['position'];
             $playlist->track_id = $row['track_id'];
             
-            // Retour de l'artiste
+            // Retour de l'objet playlist_tracks
             return $playlist;
         } catch (Exception $e) {
             $trace = $e->getTrace();
@@ -166,9 +166,9 @@ class Playlist_tracks {
     }
 
     /**
-     * retourne dans un tableau d'objets Artist
+     * retourne dans un tableau d'objets playlist_tracks
      * tous les artistes contenus dans la base
-     * @return un tableau d'objets Artist rempli avec les artistes contenues dans la base
+     * @return un tableau d'objets playlist_tracks rempli avec les Playlist_Tracks contenues dans la base
      */
     public static function findAll() {
         try {
@@ -182,9 +182,6 @@ class Playlist_tracks {
             // Exécution de la requête préparée
             $statement->execute();
 
-            // Récupération de tous les tuples de la table Artist
-            $row = $statement->fetch(PDO::FETCH_ASSOC);
-
             $tab = Array();
             // Tant que des lignes sont retournées
             while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
@@ -196,7 +193,7 @@ class Playlist_tracks {
                 $tab[] = $playlist;
             }
 
-            // Retour du tableau d'artiste
+            // Retour du tableau d'objets playlist_tracks
             return $tab;
         } catch (Exception $e) {
             $trace = $e->getTrace();
