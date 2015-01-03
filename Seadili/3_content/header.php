@@ -18,7 +18,7 @@
     </head>
 
     <body>
-        
+
         <?php
         include_once '3_content/connecting_bar.php';
         ?>
@@ -27,33 +27,33 @@
                 $('audio').audioPlayer();
             });</script>
 
-	<script type="text/javascript">
-	$(function() {
-		$('.easy-modal').easyModal({
-			top: 200,
-			overlay: 0.2
-		});
+        <script type="text/javascript">
+            $(function () {
+                $('.easy-modal').easyModal({
+                    top: 200,
+                    overlay: 0.2
+                });
 
-		$('.easy-modal-open').click(function(e) {
-			var target = $(this).attr('href');
-			$(target).trigger('openModal');
-			e.preventDefault();
-		});
+                $('.easy-modal-open').click(function (e) {
+                    var target = $(this).attr('href');
+                    $(target).trigger('openModal');
+                    e.preventDefault();
+                });
 
-		$('.easy-modal-close').click(function(e) {
-			$('.easy-modal').trigger('closeModal');
-		});
+                $('.easy-modal-close').click(function (e) {
+                    $('.easy-modal').trigger('closeModal');
+                });
 
-		$('.easy-modal-animated').easyModal({
-			top: 200,
-			overlay: 0.2,
-			transitionIn: 'animated bounceInLeft',
-			transitionOut: 'animated bounceOutRight',
-			closeButtonClass: '.animated-close'
-		});
-	});
-	</script>   
-        
+                $('.easy-modal-animated').easyModal({
+                    top: 200,
+                    overlay: 0.2,
+                    transitionIn: 'animated bounceInLeft',
+                    transitionOut: 'animated bounceOutRight',
+                    closeButtonClass: '.animated-close'
+                });
+            });
+        </script>   
+
         <script>
             function playTrack(mp3url) {
                 console.log("toto");
@@ -95,7 +95,7 @@
                 }
 
             }
-            
+
             function showPlaylist(pid) {
                 if (document.getElementById(pid).style.display == "none") {
                     document.getElementById(pid).style.display = "block";
@@ -123,6 +123,31 @@
                     type: 'get',
                     success: function (res) {
                         $("#resultatsTitres").html(res);
+                        $(function () {
+                            console.log("coucou");
+                            $('.easy-modal').easyModal({
+                                top: 200,
+                                overlay: 0.2
+                            });
+                            console.log("oucouc");
+                            $('.easy-modal-open').click(function (e) {
+                                var target = $(this).attr('href');
+                                $(target).trigger('openModal');
+                                e.preventDefault();
+                            });
+
+                            $('.easy-modal-close').click(function (e) {
+                                $('.easy-modal').trigger('closeModal');
+                            });
+
+                            $('.easy-modal-animated').easyModal({
+                                top: 200,
+                                overlay: 0.2,
+                                transitionIn: 'animated bounceInLeft',
+                                transitionOut: 'animated bounceOutRight',
+                                closeButtonClass: '.animated-close'
+                            });
+                        });
                     }
                 });
             }
@@ -142,7 +167,7 @@
             }
 
         </script>
-        
+
         <div class="titre"> 
             <img src="http://localhost/Seadili/Seadili/5_images/logo/tmp2.jpg"/>
         </div>
