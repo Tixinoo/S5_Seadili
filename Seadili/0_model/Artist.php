@@ -276,29 +276,6 @@ class Artist {
             $trace = $e->getTrace();
             echo "Erreur pendant findAll: $trace";
         }
-        
-        /* BUG :
-	//comptez nombre de ligne sql d'artistes
-	$db = DataBase::getConnection();
-	$res = $db->query('select count(*) as nb from artists');
-	$data = $res->fetch();
-	$nb = $data['nb'];
-
-	//evitez les doublons
-        $artist = new Artist();
-        $tab = Array();
-        for ($i = 0; $i < $number; $i++) {
-            $artist = Artist::findById(rand(1, $nb));
-            $tab[$i] = $artist;
-			for($j =0; $j<$i; $j++){
-				while($tab[$i]== $tab[$j]){
-					$track = Artist::findById(rand(1, $nb));
-					$tab[$i] = $artist;
-					$j=0;
-				}
-			}			
-        }
-        return $tab; */
     }
 
 }
