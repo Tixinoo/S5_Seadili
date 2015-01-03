@@ -1,94 +1,184 @@
-body{
-    font-family: Lustria;
-    color:white; 
-    background-color: rgb(25,25,25);
-}
-
-a{
-    color:rgb(25,25,25);
-}
-
-div.confirm {
-    text-align: center;
-}
-
-div.confirm input{
-    font-size: 14px;
+body {
+    font-family: Open Sans Condensed;
+    font-size: 1.5em;
 }
 
 input {
-    font-family: Lustria;
+    font-family: Open Sans Condensed;
+    font-size: 0.8em;
 }
 
-div.foot {
-    display: block;
+div.player {
+    margin: auto;
     text-align: center;
+    width: 70%;
 }
 
-div.artiste {
+
+div.titre {
     display: inline-block;
-    border: solid white 2px;
-    text-align: center;
-    padding: 3px;
-    margin : 3px;
-    width: 200px;
-    height: 300px;
-    overflow: hidden;
+    font-family: Advent Pro;
+    color: black;
+    width: 40%;
 }
 
-div.morceau {
+div.titre img {
+    float: right;
+    margin-right: 50px;
+    max-height: 300px;
+}
+
+div.titre h1 {
+    font-size: 50px;
+    margin-bottom: -25px;
+}
+
+h2 {
+    margin-bottom: -10px;
+}
+
+div.titre h4 {
+    font-style: italic;
+}
+
+div.menu{
+    height:100px;
+    text-align: center;
+}
+
+img.loupe{
+    width:40px; 
+    height:32px;
+}
+
+div.lienhome,div.lienplaylist,div.lienenreg{
     display: inline-block;
-    border: solid white 2px;
+    padding-top: 10px;
     text-align: center;
-    padding: 3px;
-    margin : 3px;
-    width: 350px;
-    height: 160px;
-    overflow: hidden;
+    width:130px; 
+    border-bottom: solid rgb(220,220,220) 1px;
 }
 
-div.morceau a {
-    color:white;
+div.connexion{
+    text-align: right;
 }
 
-div.playlist {
-    display: inline-block;
-    border: solid white 2px;
+div.page {
     text-align: center;
-    padding: 3px;
-    margin : 3px;
-    width: 365px;
-    overflow: hidden;
 }
 
-#playlistcurrent {
-    position: absolute;
-    top: 168px;
-    right: 50px;
-    border: solid white 2px;
-    padding: 8px;
-    width: 400px;
-    text-align: left;
+input.recherche{
+    padding:3px;
+    border:1px solid black;
+    width:500px;
+    box-shadow:1px 1px 2px Silver inset;
 }
 
+/*
 input.newPlaylist {
     position: absolute;
-    top: 90px;
-    right: 50px;
-    border: solid white 2px;
+    top: 70px;
+    right: 8px;
+    border: solid rgb(220,220,220) 1px;
     padding: 8px;
-    width: 420px;
+    width: 300px;
     text-align: center; 
 }
 
 input.nomNewPlaylist {
     position: absolute;
-    top: 130px;
-    right: 50px;
-    border: solid white 2px;
+    top: 100px;
+    right: 8px;
+    border: solid rgb(220,220,220) 1px;
     padding: 8px;
-    width: 400px;
+    width: 282px;
     text-align: left; 
+}
+
+#playlistcurrent {
+    position: absolute;
+    top: 132px;
+    right: 8px;
+    border: solid rgb(220,220,220) 1px;
+    padding: 8px;
+    width: 282px;
+    text-align: left; 
+}
+*/
+
+input.newPlaylist {
+    border: solid rgb(220,220,220) 1px;
+    padding: 8px;
+    width: 100px;
+    text-align: center;
+}
+
+input.nomNewPlaylist {
+    border: solid red 1px;
+    padding: 8px;
+    width: 96%;
+    text-align: left; 
+}
+
+#playlistcurrent {
+    border: solid rgb(220,220,220) 1px;
+    padding: 8px;
+    width: 96%;
+    text-align: left; 
+}
+
+div.morceau {
+    display: inline-block;
+    border: solid rgb(220,220,220) 1px;
+    text-align: center;
+    font-size: 0.7em;
+    width: 210px;
+    height: 100px;
+    padding: 3px;
+    margin : 3px;
+    overflow: hidden;
+}
+
+div.morceauInline {
+    display: inline-block;
+    border: solid rgb(220,220,220) 1px;
+    text-align: left;
+    font-size: 0.8em;
+    width: 300px;
+    padding: 1px;
+    margin : 1px;
+    overflow: hidden;
+}
+
+div.artiste {
+    display: inline-block;
+    border: solid rgb(220,220,220) 1px;
+    text-align: center;
+    font-size: 0.8em;
+    width: 200px;
+    height: 170px;
+    padding: 3px;
+    margin : 3px;
+    overflow: hidden;
+}
+
+div.infoartist {
+    text-align: center;
+    padding: 10px;
+    background-color: white;
+    border: solid red 1px;
+    
+}
+
+div.playlist {
+    display: inline-block;
+    float: top;
+    border: solid rgb(220,220,220) 1px;
+    text-align: center;
+    padding: 3px;
+    margin : 3px;
+    width: 310px;
+    overflow: hidden;
 }
 
 div.decouverte {
@@ -113,57 +203,27 @@ div.Dplaylist {
     overflow: hidden;
 }
 
-div.playlistcontent {
-    display: none;
-}
-
-div.page{
-    padding: 10px 10px 10px 10px;
-}
-
-div.page h1{
-    color:orange;
-    text-align: center;
-}
-
 div.inscription{
     margin: auto;
-    width: 455px;
+    width: 500px;
 }
 
-label.lab{
-    display:inline-block;
-    width:210px;
-    text-align: right;
-    margin-right: 5px;
+input.champ{
+    padding:3px;
+    border:1px solid black;
+    width:150px;
+    box-shadow:1px 1px 2px Silver inset;
 }
 
 label.lab + input.champ{
     margin-bottom: 10px;
 }
 
-p.foot {
-    color: white;
-}
-
-div.titre{
-    border-top:solid gray; 
-    background-color: rgb(25,25,25); 
-    height:150px; 
-    text-align:center; 
-    color:white; 
-    font-family: Lustria;
-}
-
-div.titre h1{
-    font-size: 50px;
-    margin-bottom: -20px;
-}
-
-div.connexion{
-    background-image: url(http://localhost/Seadili/Seadili/5_images/connexion.jpg); 
-    height:60px; 
-    margin-top:5px;
+label.lab{
+    display:inline-block;
+    width:220px;
+    text-align: right;
+    margin-right: 5px;
 }
 
 div.input{
@@ -173,87 +233,15 @@ div.input{
     padding-right:10px;
 }
 
-div.menu{
-    background-color: rgb(25,25,25); 
-    height:50px;
+div.confirm {
     text-align: center;
-    color: black;
 }
 
-div.lienenreg{
-    display: inline-block;
-    background-color:rgb(140,140,140); 
-    height:50px; 
-    line-height:50px;
-    width:130px; 
-    text-align:center; 
-    font-weight:bold
+div.confirm input{
+    font-size: 14px;
 }
 
-div.lienplaylist{
-    display: inline-block;
-    background-color: rgb(180,180,180); 
-    height:50px; 
-    line-height:50px;
-    width:130px; 
-    text-align:center; 
-    font-weight:bold;
-}
-
-div.lienhome{
-    display: inline-block;
-    background-color: rgb(220,220,220);; 
-    height:50px;
-    line-height:50px; 
-    width:130px; 
-    text-align:center; 
-    font-weight:bold;
-}
-
-input.champ{
-    background-color:silver;
-    padding:3px;
-    border:1px solid white;
-    /*border-radius:7px;*/
-    width:150px;
-    box-shadow:1px 1px 2px Silver inset;
-}
-
-input.recherche{
-    background-color:silver;
-    padding:3px;
-    border:1px solid white;
-    /*border-radius:7px;*/
-    width:500px;
-    box-shadow:1px 1px 2px Silver inset;
-}
-
-input.bouton{
-    background-color:Lavender;
-    width:100px;
-    padding:3px;
-    border-radius:7px;
-    margin-left:5px;
-    box-shadow:1px 1px 1px Silver;
-    cursor:pointer;
-}
-
-input.bouton:active{
-    background-color:Lavender;
-    box-shadow:1px 1px 1px Silver inset;
-}
-
-input.add {
-    float: right;
-}
-
-button{
-    background-color:white;
-    border: 0.1px solid #abadb3;
-    cursor:pointer;
-}
-
-img.loupe{
-    width:25px; 
-    height:25px;
+div.foot {
+    display: block;
+    text-align: center;
 }

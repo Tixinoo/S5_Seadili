@@ -18,13 +18,15 @@ if(isset($_POST['username'], $_POST['password'])) {
     // On récupère l'utilisateur
     $user = User::findByUsername($un);
     
+    // Si le mot de passe indiqué est le bon
     if(md5($pw) == $user->password) {
         $a = session_start();
-        echo $a;
+        // On enregistre en tant que variables de sessions, son nom d'utilisateur et son id
         $_SESSION['username'] = $un;
         $_SESSION['userid'] = $user->user_id;
     }
     
 }
 
+// Redirection vers la page d'accueil
 header("Location: ../index.php?a=home");

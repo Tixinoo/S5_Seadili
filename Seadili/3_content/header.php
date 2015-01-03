@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="author" content="SeaDiLi-Team" />
         <title>SeaDiLi</title>
-        <link rel="stylesheet" href="4_style/style_1.css" />
+        <link rel="stylesheet" href="4_style/style.css" />
         <link rel="stylesheet" href="4_style/audioplayer.css" />
         <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Yeseva+One' rel='stylesheet' type='text/css'/>
@@ -13,8 +13,6 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="js/audioplayer.js"></script>
         <script type="text/javascript" src="js/jquery.easyModal.js"></script>
-
-
     </head>
 
     <body>
@@ -23,9 +21,11 @@
         include_once '3_content/connecting_bar.php';
         ?>
 
-        <script>$(function () {
+        <script>
+            $(function () {
                 $('audio').audioPlayer();
-            });</script>
+            });
+        </script>
 
         <script type="text/javascript">
             $(function () {

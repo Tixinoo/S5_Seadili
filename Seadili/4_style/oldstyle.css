@@ -1,0 +1,259 @@
+body{
+    font-family: Lustria;
+    color:white; 
+    background-color: rgb(25,25,25);
+}
+
+a{
+    color:rgb(25,25,25);
+}
+
+div.confirm {
+    text-align: center;
+}
+
+div.confirm input{
+    font-size: 14px;
+}
+
+input {
+    font-family: Lustria;
+}
+
+div.foot {
+    display: block;
+    text-align: center;
+}
+
+div.artiste {
+    display: inline-block;
+    border: solid white 2px;
+    text-align: center;
+    padding: 3px;
+    margin : 3px;
+    width: 200px;
+    height: 300px;
+    overflow: hidden;
+}
+
+div.morceau {
+    display: inline-block;
+    border: solid white 2px;
+    text-align: center;
+    padding: 3px;
+    margin : 3px;
+    width: 350px;
+    height: 160px;
+    overflow: hidden;
+}
+
+div.morceau a {
+    color:white;
+}
+
+div.playlist {
+    display: inline-block;
+    border: solid white 2px;
+    text-align: center;
+    padding: 3px;
+    margin : 3px;
+    width: 365px;
+    overflow: hidden;
+}
+
+#playlistcurrent {
+    position: absolute;
+    top: 168px;
+    right: 50px;
+    border: solid white 2px;
+    padding: 8px;
+    width: 400px;
+    text-align: left;
+}
+
+input.newPlaylist {
+    position: absolute;
+    top: 90px;
+    right: 50px;
+    border: solid white 2px;
+    padding: 8px;
+    width: 420px;
+    text-align: center; 
+}
+
+input.nomNewPlaylist {
+    position: absolute;
+    top: 130px;
+    right: 50px;
+    border: solid white 2px;
+    padding: 8px;
+    width: 400px;
+    text-align: left; 
+}
+
+div.decouverte {
+    border: groove white 2px;
+    text-align: center;
+    margin: 3px;
+    border-radius: 10px;
+    width: 400px;
+
+}
+
+div.Dplaylist {
+    background-color: silver;
+    color: black;
+    display: inline-block;
+    border: solid white 2px;
+    text-align: left;
+    padding: 3px;
+    margin : 3px;
+    width: 365px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+div.playlistcontent {
+    display: none;
+}
+
+div.page{
+    padding: 10px 10px 10px 10px;
+}
+
+div.page h1{
+    color:orange;
+    text-align: center;
+}
+
+div.inscription{
+    margin: auto;
+    width: 455px;
+}
+
+label.lab{
+    display:inline-block;
+    width:210px;
+    text-align: right;
+    margin-right: 5px;
+}
+
+label.lab + input.champ{
+    margin-bottom: 10px;
+}
+
+p.foot {
+    color: white;
+}
+
+div.titre{
+    border-top:solid gray; 
+    background-color: rgb(25,25,25); 
+    height:150px; 
+    text-align:center; 
+    color:white; 
+    font-family: Lustria;
+}
+
+div.titre h1{
+    font-size: 50px;
+    margin-bottom: -20px;
+}
+
+div.connexion{
+    background-image: url(http://localhost/Seadili/Seadili/5_images/connexion.jpg); 
+    height:60px; 
+    margin-top:5px;
+}
+
+div.input{
+    text-align:right; 
+    position:relative; 
+    padding-top:15px;
+    padding-right:10px;
+}
+
+div.menu{
+    background-color: rgb(25,25,25); 
+    height:50px;
+    text-align: center;
+    color: black;
+}
+
+div.lienenreg{
+    display: inline-block;
+    background-color:rgb(140,140,140); 
+    height:50px; 
+    line-height:50px;
+    width:130px; 
+    text-align:center; 
+    font-weight:bold
+}
+
+div.lienplaylist{
+    display: inline-block;
+    background-color: rgb(180,180,180); 
+    height:50px; 
+    line-height:50px;
+    width:130px; 
+    text-align:center; 
+    font-weight:bold;
+}
+
+div.lienhome{
+    display: inline-block;
+    background-color: rgb(220,220,220);; 
+    height:50px;
+    line-height:50px; 
+    width:130px; 
+    text-align:center; 
+    font-weight:bold;
+}
+
+input.champ{
+    background-color:silver;
+    padding:3px;
+    border:1px solid white;
+    /*border-radius:7px;*/
+    width:150px;
+    box-shadow:1px 1px 2px Silver inset;
+}
+
+input.recherche{
+    background-color:silver;
+    padding:3px;
+    border:1px solid white;
+    /*border-radius:7px;*/
+    width:500px;
+    box-shadow:1px 1px 2px Silver inset;
+}
+
+input.bouton{
+    background-color:Lavender;
+    width:100px;
+    padding:3px;
+    border-radius:7px;
+    margin-left:5px;
+    box-shadow:1px 1px 1px Silver;
+    cursor:pointer;
+}
+
+input.bouton:active{
+    background-color:Lavender;
+    box-shadow:1px 1px 1px Silver inset;
+}
+
+input.add {
+    float: right;
+}
+
+button{
+    background-color:white;
+    border: 0.1px solid #abadb3;
+    cursor:pointer;
+}
+
+img.loupe{
+    width:25px; 
+    height:25px;
+}
