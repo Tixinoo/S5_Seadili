@@ -10,12 +10,7 @@ class User {
      */
     private $user_id, $username, $password, $email;
 
-    public function __construct($userid, $username, $password, $mail ) {
-        $this->user_id = $userid;
-        $this->username = $username;
-        $this->password = $password;
-        $this->email = $mail;
-    }
+    public function __construct() {}
     
     /**
      * retourne un attribut suivant son nom
