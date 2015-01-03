@@ -18,7 +18,7 @@ if(isset($_POST['username'], $_POST['password'])) {
     // On récupère l'utilisateur
     $user = User::findByUsername($un);
     
-    if($pw == $user->password) {
+    if(md5($pw) == $user->password) {
         $a = session_start();
         echo $a;
         $_SESSION['username'] = $un;

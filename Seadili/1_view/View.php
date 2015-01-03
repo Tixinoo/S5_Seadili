@@ -114,7 +114,7 @@ class View {
         </div>";
 
         if (isset($_SESSION['user'])) {
-            $u = new User();
+            $u = new User("","","","");
             $u = $_SESSION['user'];
             $t = Playlist::findByUserid($u->user_id);
             foreach ($t as $pl) {

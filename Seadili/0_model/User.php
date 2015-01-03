@@ -190,7 +190,7 @@ class User {
             $row = $statement->fetch(PDO::FETCH_ASSOC);
 
             // Remplissage d'un objet User avec les emailrmations contenues dans le tuple
-            $user = new User();
+            $user = new User("","","","");
             $user->user_id = $row['user_id'];
             $user->username = $row['username'];
             $user->password = $row['password'];
@@ -225,7 +225,7 @@ class User {
             // Tant que des lignes sont retournées
             while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
                 // Remplissage d'un objet User avec les emailrmations contenues dans le tuple courant
-                $user = new User();
+                $user = new User("","","","");
                 $user->user_id = $row['user_id'];
                 $user->username = $row['username'];
                 $user->password = $row['password'];
