@@ -5,7 +5,7 @@ include_once 'DataBase.php';
 class User {
 
     /**
-     * Attributs d'un usere
+     * Attributs d'un user
      * (correspondent aux colonnes de la table 'User')
      */
     private $user_id, $username, $password, $email;
@@ -136,7 +136,7 @@ class User {
     /**
      * retourne dans un objet User
      * les emailrmations de la base
-     * relative à l'usere dont l'id
+     * relative à l'user dont l'id
      * est celui donné en paramètre
      * @param $id identifiant de l'ariste dans la base
      * @return un objet User rempli avec les emailrmations contenues dans la base
@@ -164,7 +164,7 @@ class User {
             $user->password = $row['password'];
             $user->email = $row['email'];
 
-            // Retour de l'usere
+            // Retour de l'user
             return $user;
         } catch (Exception $e) {
             $trace = $e->getTrace();
@@ -206,8 +206,8 @@ class User {
     
     /**
      * retourne dans un tableau d'objets User
-     * tous les useres contenus dans la base
-     * @return un tableau d'objets User rempli avec les useres contenues dans la base
+     * tous les users contenus dans la base
+     * @return un tableau d'objets User rempli avec les users contenues dans la base
      */
     public static function findAll() {
         try {
@@ -233,7 +233,7 @@ class User {
                 $tab[] = $user;
             }
 
-            // Retour du tableau d'usere
+            // Retour du tableau d'user
             return $tab;
         } catch (Exception $e) {
             $trace = $e->getTrace();
@@ -279,7 +279,7 @@ class User {
             $row = $statement->fetch(PDO::FETCH_NUM);
         
 
-            // Retour du tableau d'usere
+            // Retour du tableau d'user
             
             echo $row[0]+1;
             return $row[0]+1;
