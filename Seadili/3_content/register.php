@@ -72,11 +72,7 @@ $valid = true;
     if ($valid){
         echo "<br><br><br><p> Félicitations ! Votre inscription s'est réalisée avec succès !</p>";
         $id = User::newId();
-        $us = new User();
-        $user->user_id = $id;
-        $user->username = $pseudo;
-        $user->password = md5($pass);
-        $user->email = $mail;
+        $us = new User($id,$pseudo,md5($pass),$mail);
         $us->insert();
     }
     else{
