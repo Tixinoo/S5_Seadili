@@ -283,35 +283,76 @@ class Track {
             echo "Erreur pendant findAll: $trace";
         }
     }
-	
-	
-	/**
-	*Permet de trouver des tracks aléatoire
-	*@return un tableau de Track aléatoire en fonction de l'id sans doublon
-	*/
+
+    /**
+     * Permet de trouver des tracks aléatoire
+     * @return un tableau de Track aléatoire en fonction de l'id sans doublon
+     */
     public static function findRandom($number) {
-	
-	//Permet de compter le nombre de lignes sql dans tracks
-	$db = DataBase::getConnection();
-	$res = $db->query('select count(*) as nb from tracks');
-	$data = $res->fetch();
-	$nb = $data['nb'];
-	
-	//Boucle permettant d'évitez tous les doublons
-        $track = new Track();
-        $tab = Array();
-        for ($i = 0; $i < $number; $i++) {
-            $track = Track::findById(rand(1, $nb));
-            $tab[$i] = $track;
-			for($j =0; $j<$i; $j++){
-				while($tab[$i]== $tab[$j]){
-					$track = Track::findById(rand(1, $nb));
-					$tab[$i] = $track;
-					$j=0;
-				}
-			}
+        try {
+            // Récupération d'une connexion à la base
+            $db = DataBase::getConnection();
+
+            // Création de la requête préparée
+            $query = "SELECT * FROM tracks ORDER BY RAND() LIMIT 8";
+            $statement = $db->prepare($query);
+
+            //$statement->bindParam(':number', $number);
+
+            // Exécution de la requête préparée
+            $statement->execute();
+
+            $tab = Array();
+            // Tant que des lignes sont retournées
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                // Remplissage d'un objet Track avec les informations contenues dans le tuple courant
+                $track = new Track();
+                $track->track_id = $row['track_id'];
+                $track->title = $row['title'];
+                $track->mp3_url = $row['mp3_url'];
+                $track->artist_id = $row['artist_id'];
+                $tab[] = $track;
+            }
+
+            // Retour du tableau d'artiste
+            return $tab;
+        } catch (Exception $e) {
+            $trace = $e->getTrace();
+            echo "Erreur pendant findAll: $trace";
         }
-        return $tab;
+
+        /* ANCIENNE VERSION FONCTIONNELLE :
+          $track = new Track();
+          $tab = Array();
+          for ($i = 0; $i < $number; $i++) {
+          $track = Track::findById(rand(1, 25));
+          $tab[] = $track;
+          }
+          return $tab;
+         */
+
+        /* BUG :
+          //Permet de compter le nombre de lignes sql dans tracks
+          $db = DataBase::getConnection();
+          $res = $db->query('select count(*) as nb from tracks');
+          $data = $res->fetch();
+          $nb = $data['nb'];
+
+          //Boucle permettant d'évitez tous les doublons
+          $track = new Track();
+          $tab = Array();
+          for ($i = 0; $i < $number; $i++) {
+          $track = Track::findById(rand(1, $nb));
+          $tab[$i] = $track;
+          for($j =0; $j<$i; $j++){
+          while($tab[$i]== $tab[$j]){
+          $track = Track::findById(rand(1, $nb));
+          $tab[$i] = $track;
+          $j=0;
+          }
+          }
+          }
+          return $tab; */
     }
 
 }

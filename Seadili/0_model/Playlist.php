@@ -244,7 +244,41 @@ class Playlist {
 	
     
     public static function findRandom($number) {
-	
+        try {
+            // Récupération d'une connexion à la base
+            $db = DataBase::getConnection();
+
+            // Création de la requête préparée
+            $query = "SELECT * FROM playlists ORDER BY RAND() LIMIT 2";
+            $statement = $db->prepare($query);
+
+            //$statement->bindParam(':number', $number);
+
+            // Exécution de la requête préparée
+            $statement->execute();
+
+            // Récupération de tous les tuples de la table Artist
+            //$row = $statement->fetch(PDO::FETCH_OBJ);
+
+            $tab = Array();
+            // Tant que des lignes sont retournées
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                // Remplissage d'un objet Playlist avec les informations contenues dans le tuple courant
+                $playlist = new Playlist();
+                $playlist->playlist_id = $row['playlist_id'];
+                $playlist->playlist_name = $row['playlist_name'];
+                $playlist->user_id = $row['user_id'];
+                $tab[] = $playlist;
+            }
+
+            // Retour du tableau d'artiste
+            return $tab;
+        } catch (Exception $e) {
+            $trace = $e->getTrace();
+            echo "Erreur pendant findAll: $trace";
+        }
+        
+        /* BUG :
 	//Permet de trouver le nombre de playlist dans la bdd (et donc faire le random entre 1 et ce nombre)
 	$db = DataBase::getConnection();
 	$res = $db->query('select count(*) as nb from playlists');
@@ -265,7 +299,7 @@ class Playlist {
 				}
 			}			
         }
-        return $tab;
+        return $tab; */
     }
 
 }

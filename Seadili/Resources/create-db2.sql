@@ -102,13 +102,6 @@ CREATE TABLE IF NOT EXISTS `playlists` (
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
---
--- Contenu de la table `playlists`
---
-
-INSERT INTO `playlists` (`user_id`, `playlist_id`, `playlist_name`) VALUES
-(1, 1, 'Magnificent stuff');
-
 -- --------------------------------------------------------
 
 --
@@ -123,20 +116,6 @@ CREATE TABLE IF NOT EXISTS `playlists_tracks` (
   KEY `playlist_id` (`playlist_id`),
   KEY `track_id` (`track_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `playlists_tracks`
---
-
-INSERT INTO `playlists_tracks` (`playlist_id`, `position`, `track_id`) VALUES
-(1, 8, 34),
-(1, 6, 109),
-(1, 2, 115),
-(1, 7, 136),
-(1, 5, 138),
-(1, 1, 166),
-(1, 3, 168),
-(1, 4, 187);
 
 -- --------------------------------------------------------
 

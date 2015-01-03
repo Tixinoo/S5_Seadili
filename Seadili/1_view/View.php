@@ -27,6 +27,7 @@ class View {
             $this->trackView($track);
         }
         echo "</div>";
+        
         echo "<h2>Artistes</h2><hr><br><div id=\"resultatsArtistes\">";
         foreach (Artist::findRandom(4) as $artist) {
             $this->artistView($artist);
@@ -144,31 +145,32 @@ class View {
      * @param $artist Artiste à afficher
      */
     public function artistView($artist) {
-        echo"<div class=\"artiste\"><b>" . $artist->name . "</b>
-        <br><img src=\"" . $artist->image_url . "\" height=\"100px\"/>";
-        echo "<br><button style=\"background-color: white; border: 0px;\" class=\"easy-modal-open\" href=\"#artistinfo" . $artist->artist_id . "\"><img height=\"20px\" src=\"http://localhost/Seadili/Seadili/5_images/info.png\" height=\"100px\"/></button>\n";
-        /* echo "<!--<br>Info : " . $artist->info . "-->
-          <br><input type=\"image\" height=\"20px\" src=\"http://localhost/Seadili/Seadili/5_images/info.png\" value=\"Info\">"; */
-        echo "</div>";
-
-        echo "<div class=\"easy-modal\" id=\"artistinfo" . $artist->artist_id . "\">\n";
-        echo "<br><div class=\"infoartist\">";
-        echo "<b>" . $artist->name . "</b>";
-        echo "<br><br><img src=\"" . $artist->image_url . "\" height=\"100px\"/>";
-        echo "<br><br><i>" . $artist->info . "</i></div>";
-        echo "</div>\n";
+        echo $this->artistView2($artist);
     }
 
     /**
      * Affiche un artiste
      * @param $artist Artiste à afficher
+     * @return String contenant l'artiste à afficher
      */
     public function artistView2($artist) {
+        $str = "<div class=\"artiste\"><b>" . $artist->name . "</b>
+        <br><img src=\"" . $artist->image_url . "\" height=\"100px\"/>";
+        $str.= "<br><button style=\"background-color: white; border: 0px;\" class=\"easy-modal-open\" href=\"#artistinfo" . $artist->artist_id . "\"><img height=\"20px\" src=\"http://localhost/Seadili/Seadili/5_images/info.png\" height=\"100px\"/></button>\n";
+        $str.= "</div>";
+        $str.= "<div class=\"easy-modal\" id=\"artistinfo" . $artist->artist_id . "\">\n";
+        $str.= "<br><div class=\"infoartist\">";
+        $str.= "<b>" . $artist->name . "</b>";
+        $str.= "<br><br><img src=\"" . $artist->image_url . "\" height=\"100px\"/>";
+        $str.= "<br><br><i>" . $artist->info . "</i></div>";
+        $str.= "</div>\n";
+        return $str;
+        /* OLD :
         $str = "<div class=\"artiste\">" . $artist->name . "
         <br><img src=\"" . $artist->image_url . "\" height=\"100px\"/>
         <br>Info : " . $artist->info . "
         </div>";
-        return $str;
+        return $str; */
     }
 
     public function artistsView($artists) {
@@ -184,13 +186,7 @@ class View {
      * @param $track Titre à afficher
      */
     public function trackView($track) {
-        $artist = Artist::findById($track->artist_id);
-        echo"<div class=\"morceau\">";
-        echo "<input type=\"image\" height=\"25px\" src=\"http://localhost/Seadili/Seadili/5_images/play.png\" value=\"Lire\" onclick=\"playTrack('" . $track->mp3_url . "')\"><br>";
-        echo $track->title;
-        echo "<br><i>" . $artist->name . "</i>";
-        echo "<br><input type=\"image\" height=\"27px\" src=\"http://localhost/Seadili/Seadili/5_images/add.png\" value=\"Ajouter\" onclick=\"addtrackplaylist(" . $track->track_id . ",'" . $track->title . "')\">";
-        echo "</div>";
+        echo $this->trackView2($track);
     }
 
     /**
@@ -210,8 +206,18 @@ class View {
     /**
      * Affiche un titre
      * @param $track Titre à afficher
+     * @return String contenant la track
      */
     public function trackView2($track) {
+        $artist = Artist::findById($track->artist_id);
+        $str = "<div class=\"morceau\">";
+        $str.= "<input type=\"image\" height=\"25px\" src=\"http://localhost/Seadili/Seadili/5_images/play.png\" value=\"Lire\" onclick=\"playTrack('" . $track->mp3_url . "')\"><br>";
+        $str.= $track->title;
+        $str.= "<br><i>" . $artist->name . "</i>";
+        $str.= "<br><input type=\"image\" height=\"27px\" src=\"http://localhost/Seadili/Seadili/5_images/add.png\" value=\"Ajouter\" onclick=\"addtrackplaylist(" . $track->track_id . ",'" . $track->title . "')\">";
+        $str.= "</div>";
+        return $str;
+        /* OLD:
         $str = "<div class=\"morceau\">" . $track->title;
         $str.=
                 "<form name=\"addtrack\" method=\"POST\">
@@ -222,7 +228,7 @@ class View {
         <br><audio controls=\"controls\"><source src=" . $track->mp3_url . "/></audio>
         <br><input type=\"button\" value=\"Lire\" onclick=\"playTrack('" . $track->mp3_url . "')\">
         </div>";
-        return $str;
+        return $str; */
     }
 
     public function tracksView($tracks) {

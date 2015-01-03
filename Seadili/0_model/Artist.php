@@ -245,7 +245,39 @@ class Artist {
     }
     
     public static function findRandom($number) {
-	
+        try {
+            // Récupération d'une connexion à la base
+            $db = DataBase::getConnection();
+
+            // Création de la requête préparée
+                $query = "SELECT * FROM artists ORDER BY RAND() LIMIT 4";
+            $statement = $db->prepare($query);
+
+            //$statement->bindParam(':number', $number);
+
+            // Exécution de la requête préparée
+            $statement->execute();
+
+            $tab = Array();
+            // Tant que des lignes sont retournées
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                // Remplissage d'un objet Artist avec les informations contenues dans le tuple courant
+                $artist = new Artist();
+                $artist->artist_id = $row['artist_id'];
+                $artist->name = $row['name'];
+                $artist->image_url = $row['image_url'];
+                $artist->info = $row['info'];
+                $tab[] = $artist;
+            }
+
+            // Retour du tableau d'artiste
+            return $tab;
+        } catch (Exception $e) {
+            $trace = $e->getTrace();
+            echo "Erreur pendant findAll: $trace";
+        }
+        
+        /* BUG :
 	//comptez nombre de ligne sql d'artistes
 	$db = DataBase::getConnection();
 	$res = $db->query('select count(*) as nb from artists');
@@ -266,7 +298,7 @@ class Artist {
 				}
 			}			
         }
-        return $tab;
+        return $tab; */
     }
 
 }
