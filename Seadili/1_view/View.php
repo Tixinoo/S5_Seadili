@@ -4,10 +4,10 @@ include_once '0_model/User.php';
 include_once '0_model/Track.php';
 
 class View {
+    
     /*
      * Objet à afficher
      */
-
     private $obj0, $obj1, $obj2;
 
     function __construct($p0, $p1, $p2) {
@@ -18,21 +18,24 @@ class View {
 
     public function defaultView() {
         include '3_content/header.php';
-
         include '3_content/home.html';
 
-        echo "<div style=\"display:inline-block; float:left; width:58%; \">";
+        // Affichage de titres aléatoires
+        echo "<div style=\"display:inline-block; float:left; width:78%; \">";
         echo "<h2>Titres</h2><hr><br><div id=\"resultatsTitres\">";
         foreach (Track::findRandom(8) as $track) {
             $this->trackView($track);
         }
         echo "</div>";
-
+        
+        // Affichage d'artistes aléatoires
         echo "<h2>Artistes</h2><hr><br><div id=\"resultatsArtistes\">";
         foreach (Artist::findRandom(4) as $artist) {
             $this->artistView($artist);
         }
         echo "</div>";
+        
+        // Affichage de playlists aléatoires
         echo "<h2>Playlists</h2><hr><br><div id=\"resultatsPlaylists\">";
         foreach (Playlist::findRandom(3) as $playlist) {
             $this->playlistView($playlist);
@@ -40,60 +43,24 @@ class View {
         echo "</div>";
         echo "</div>";
 
-        /* echo "<div style=\"display:inline-block; float:right; width:39%; margin:auto;\">";
-          echo "<h2>Votre écoute</h2><hr><br>";
-          include '3_content/player.html';
-          echo "\n";
-          echo "</div>"; */
-
-        echo "<div style=\"display:inline-block; float:right; width:39%; margin:auto;\">";
+        // Affichage de la playlist en création
+        echo "<div style=\"display:inline-block; float:left; width:20%; margin:auto;\">";
         echo "<h2>Votre nouvelle playlist</h2><hr><br>";
         include '3_content/newplaylist.html';
         echo "</div>";
 
+        // Affichage du footer
         echo "<div style=\"display:inline; float:right; width:100%;\">";
         include '3_content/footer.html';
         echo "</div>";
-    }
-
-    public function olddefaultView() {
-        include '3_content/header.php';
-        include '3_content/home.html';
-        //Affichage de 10 titres aléatoires
-        echo "<h2>Titres</h2><hr><br><div id=\"resultatsTitres\">";
-        for ($i = 0; $i < 3; $i++) {
-            $this->trackView($this->obj0[rand(0, count($this->obj0) - 1)]);
-        }
-        //foreach ($this->obj0 as $track) {
-        //$this->trackView($track);
-        //}
-        echo "</div>";
-
-        //Affichage de 10 artistes aléatoires
-        echo "<h2>Artites</h2><hr><br><div id=\"resultatsArtistes\">";
-        for ($i = 0; $i < 3; $i++) {
-            $this->artistView($this->obj1[rand(0, count($this->obj1) - 1)]);
-        }
-        //foreach ($this->obj1 as $artist) {
-        //$this->artistView($artist);
-        //}
-        echo "</div>";
-
-        //Affichage de toutes les playlists
-        echo "<h2>Playlists</h2><hr><br><div id=\"resultatsPlaylists\">";
-        foreach ($this->obj2 as $playlist) {
-            $this->playlistView($playlist);
-        }
-        echo "</div>";
-
-        include '3_content/footer.html';
     }
 
     public function playlistsView() {
         include '3_content/header.php';
         include '3_content/playlists.html';
 
-        /*echo
+        /* PARTIE "A DECOUVRIR" - NON ACHEVÉE
+        echo
         "<div class=\"decouverte\">
             <h2>Decouvrir...</h2>
             <div class=\"Dplaylist\" id=1 onclick=\"playlist(this.id)\">
@@ -111,11 +78,11 @@ class View {
                 Morceau 1
                 <br>Morceau 2
             </div>
-        </div>";*/
+        </div>";
+        */
         
         //Affichage de toutes les playlists de l'utilisateur s'il est connecté
         echo "<h2>Mes Playlists</h2><hr><br><div id=\"resultatsPlaylists\">";
-        
         if (isset($_SESSION['username'])) {
             $t = Playlist::findByUserid($_SESSION['userid']);
             foreach ($t as $pl) {
@@ -124,8 +91,8 @@ class View {
         } else {
             echo "Vous n'êtes pas connectés. Inscrivez-vous et connectez-vous pour profiter pleinement de SeaDiLi !";
         }
-
-
+        
+        // Affichage du footer
         include '3_content/footer.html';
     }
 
@@ -168,14 +135,13 @@ class View {
         $str.= "<br><br><i>" . $artist->info . "</i></div>";
         $str.= "</div>\n";
         return $str;
-        /* OLD :
-          $str = "<div class=\"artiste\">" . $artist->name . "
-          <br><img src=\"" . $artist->image_url . "\" height=\"100px\"/>
-          <br>Info : " . $artist->info . "
-          </div>";
-          return $str; */
     }
 
+    /**
+     * Affiche un tableau d'artistes
+     * @param $artists un tableau d'Artists à afficher
+     * @return String contenant les artistes à afficher
+     */
     public function artistsView($artists) {
         $str = "";
         foreach ($artists as $artist) {
@@ -234,6 +200,11 @@ class View {
           return $str; */
     }
 
+    /**
+     * Affiche un tableau de titres
+     * @param $tracks un tableau de titres
+     * @return String contenant les titres à afficher
+     */
     public function tracksView($tracks) {
         $str = "";
         foreach ($tracks as $track) {
