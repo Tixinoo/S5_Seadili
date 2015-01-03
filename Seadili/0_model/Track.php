@@ -160,7 +160,7 @@ class Track {
             $track->mp3_url = $row['mp3_url'];
             $track->artist_id = $row['artist_id'];
 
-            // Retour de l'artiste
+            // Retour du titre
             return $track;
         } catch (Exception $e) {
             $trace = $e->getTrace();
@@ -174,7 +174,6 @@ class Track {
             $db = DataBase::getConnection();
 
             // Création de la requête préparée
-            //$query = "SELECT track_id FROM playlists_tracks WHERE playlist_id = :pid";
             $query = "SELECT * FROM playlists_tracks WHERE playlist_id = :pid";
             $statement = $db->prepare($query);
             $statement->bindParam(':pid', $playlistid);
@@ -191,7 +190,7 @@ class Track {
                 $tab[] = $track;
             }
 
-            // Retour du tableau d'artiste
+            // Retour du tableau de titres
             return $tab;
         } catch (Exception $e) {
             $trace = $e->getTrace();
@@ -217,9 +216,6 @@ class Track {
 
             // Exécution de la requête préparée
             $statement->execute();
-
-            // Récupération de tous les tuples de la table Artist
-            //$row = $statement->fetch(PDO::FETCH_ASSOC);
 
             $tab = Array();
             // Tant que des lignes sont retournées
@@ -258,9 +254,6 @@ class Track {
             // Exécution de la requête préparée
             $statement->execute();
 
-            // Récupération de tous les tuples de la table Artist
-            $row = $statement->fetch(PDO::FETCH_ASSOC);
-
             $tab = Array();
             // Tant que des lignes sont retournées
             while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
@@ -273,7 +266,7 @@ class Track {
                 $tab[] = $track;
             }
 
-            // Retour du tableau d'artiste
+            // Retour du tableau de titres
             return $tab;
         } catch (Exception $e) {
             $trace = $e->getTrace();
@@ -311,7 +304,7 @@ class Track {
                 $tab[] = $track;
             }
 
-            // Retour du tableau d'artiste
+            // Retour du tableau de titres
             return $tab;
         } catch (Exception $e) {
             $trace = $e->getTrace();
