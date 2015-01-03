@@ -93,7 +93,7 @@ class View {
         include '3_content/header.php';
         include '3_content/playlists.html';
 
-        echo
+        /*echo
         "<div class=\"decouverte\">
             <h2>Decouvrir...</h2>
             <div class=\"Dplaylist\" id=1 onclick=\"playlist(this.id)\">
@@ -111,15 +111,18 @@ class View {
                 Morceau 1
                 <br>Morceau 2
             </div>
-        </div>";
-
-        if (isset($_SESSION['user'])) {
-            $u = new User("","","","");
-            $u = $_SESSION['user'];
-            $t = Playlist::findByUserid($u->user_id);
+        </div>";*/
+        
+        //Affichage de toutes les playlists de l'utilisateur s'il est connecté
+        echo "<h2>Mes Playlists</h2><hr><br><div id=\"resultatsPlaylists\">";
+        
+        if (isset($_SESSION['username'])) {
+            $t = Playlist::findByUserid($_SESSION['userid']);
             foreach ($t as $pl) {
                 $this->playlistView($pl);
             }
+        } else {
+            echo "Vous n'êtes pas connectés. Inscrivez-vous et connectez-vous pour profiter pleinement de SeaDiLi !";
         }
 
 

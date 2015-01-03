@@ -22,8 +22,7 @@ if(isset($_POST['username'], $_POST['password'])) {
         $a = session_start();
         echo $a;
         $_SESSION['username'] = $un;
-        $_SESSION['password'] = $user->password;
-        $_SESSION['user'] = $user;
+        $_SESSION['userid'] = $user->user_id;
     }
     
 }
