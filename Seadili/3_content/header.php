@@ -10,8 +10,8 @@
         <link href='http://fonts.googleapis.com/css?family=Yeseva+One' rel='stylesheet' type='text/css'/>
         <link href='http://fonts.googleapis.com/css?family=Lustria' rel='stylesheet' type='text/css'/>
         <link href='http://fonts.googleapis.com/css?family=Advent+Pro' rel='stylesheet' type='text/css'>
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="js/audioplayer.js"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script type="text/javascript" src="js/audioplayer.js"></script>
         <script type="text/javascript" src="js/jquery.easyModal.js"></script>
     </head>
 
