@@ -22,6 +22,8 @@
         ?>
 
         <script>
+            // Script de la librairie externe audioplayer, permettant de modifier l'affichage du player html5
+            // (Objetif : avoir le même player sur tous les navigateurs)
             $(function () {
                 $('audio').audioPlayer();
             });
@@ -55,15 +57,10 @@
         </script>   
 
         <script>
+            // Fonction qui va changer la source du player pour jouer un titre sélectionné
             function playTrack(mp3url) {
                 console.log("toto");
                 console.log(mp3url);
-                /*var audioplayer = document.getElementById("audioplayer");
-                 audioplayer.setAttribute("src", mp3url);
-                 audioplayer.load();
-                 audioplayer.play();*/
-
-                //var source = document.getElementsByTagName("source")[0];
 
                 var audioplayer = document.getElementsByTagName("audio")[0];
 
@@ -73,18 +70,18 @@
                 audioplayer.load();
                 audioplayer.play();
 
-
-                //document.getElementById("audioplayer").innerHTML = "toto";
-                //document.getElementById("audioplayer").setAttribute("src", mp3url);
                 console.log("coucou");
             }
 
+            // Fonction qui ajoute un titre à la playlist en création
             function addtrackplaylist(trackid, tracktitle) {
-                document.getElementById("playlistcurrent").innerHTML = document.getElementById("playlistcurrent").innerHTML + "- (" + trackid + ") " + tracktitle + "<br/>";
+                document.getElementById("playlistcurrent").innerHTML = document.getElementById("playlistcurrent").innerHTML + "- " + tracktitle + "<br/>"; //+ trackid + ") " 
                 document.getElementById("playlistadd").innerHTML = document.getElementById("playlistadd").innerHTML + "<input type=\"hidden\" name=\"tracks[]\" value=\"" + trackid + "\">";
                 console.log("ahah");
             }
 
+            // Fonction intialement développée pour créer la partie "A découvrir" de la page Playlists
+            // FONCTIONNALITÉE INACHEVÉE
             function playlist(id) {
                 identifiant = "pcontent" + id;
                 if (document.getElementById(identifiant).style.display == "none") {
@@ -96,6 +93,7 @@
 
             }
 
+            // cf commentaires précédents
             function showPlaylist(pid) {
                 if (document.getElementById(pid).style.display == "none") {
                     document.getElementById(pid).style.display = "block";
@@ -106,6 +104,7 @@
 
             }
 
+            // Fonction permettant d'afficher les résultats d'une recherche sans recharger la page
             function search() {
                 var input = $("#rechercher").val();
                 $("#resultats").html("<p>Résultats pour " + input + "</p>");
@@ -173,6 +172,7 @@
         </div>
 
         <?php
+        // Intégration du player unique, utilisé systématiquement pour toutes les lectures
         echo "<div style=\"display:inline-block; float:right; width:60%; margin:auto;\">";
         echo "<h2>Votre écoute</h2><hr><br>";
         include '3_content/player.html';
