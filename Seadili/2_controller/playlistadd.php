@@ -1,7 +1,7 @@
 <?php
 
-include_once 'Playlist.php';
-include_once 'Playlist_tracks.php';
+include_once '0_model/Playlist.php';
+include_once '0_model/Playlist_tracks.php';
 
 // Récupération de la session
 session_start();
